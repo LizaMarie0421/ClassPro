@@ -1,0 +1,182 @@
+@charset "ISO-8859-1";
+html{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #FFFFCC;
+	background-image: linear-gradient(rgba(0,10,0,0.5),rgba(80,80,90,0.5)),url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=background-blur-clean-clear-531880.jpg&fm=jpg");
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+.nav-bar{
+	background: rgba(0, 0, 0, 0.09);
+	height: 80px;
+}
+.logo {
+	margin: 10px 50px;
+	height: 60px
+}
+
+.menu{
+	float: right;
+	list-style: none;
+	margin: 20px;
+}
+
+.menu li{
+	display: inline-block;
+	margin: 10px 5px; 
+}
+
+.menu li a{
+	text-decoration: none;
+	color: #fff;
+	passing: 5px 10 px;
+	font-family: sans-serif;
+	letter-spacing: 2px;
+	border: 1px solid #fff;
+}
+
+.menu li a:hover{
+	background: #FFD700;
+	transition: .4s;
+	color: #000;
+	border: 1px solid #000;
+}
+
+.welcome{
+	position: relative;
+	text-align: center;
+	font-family: sans-serif;
+	color: #fff;
+	top: 160px;
+}
+.welcome h1{
+	font-size: 42px;
+	margin: 25px;
+}
+
+.btn{
+	font-size: 18px;
+	letter-spacing: 2px;
+	margin:5px;
+	padding: 7px 10px;
+	text-decoration: none;
+	border: 1px solid #fff;
+}
+
+.btn1{
+	background: #fff;
+	color: #000;
+}
+.btn2{
+	background: #fff;
+	color: #000;
+}
+
+.btn1:hover{
+	background: #000;
+	color: #fff;
+	transition: .4s;
+}
+
+.btn2:hover{
+	background: #FFD700;
+	color: #000;
+	transition: .4s;
+}
+.banner{
+	display: flex;
+	margin-top: 80px;
+}
+.left-column, .right-column{
+	flex-basis: 50%
+}
+
+.right-column img{
+	margin-top: 550px;
+	width: 50%;
+	position: relative;
+}
+.left-column {
+	width: 100%;
+	display: flex;
+	margin-top: 450px;
+}
+.left-column h1{
+	color:#fff;
+	text-decoration: aqua;
+	font-family: cursive;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+}
+.left-column p{
+	color:#fff;
+	font-family: cursive;
+	font-size: 25px;
+	width: 250%;
+	margin-top: 150px;
+	padding: 10px 10px 10px 10px;
+	position: relative;
+	text-align: left;
+	float: right;
+}
+h2{
+	color: #fff;
+	passing: 5px 10 px;
+	font-family: sans-serif;
+}
+
+.classMenu{
+	float: left;
+	list-style: none;
+	margin: 20px;
+}
+
+.classMenu li{ 
+	display: list-item;
+	margin: 10px 5px; 
+}
+
+.classMenu li a{
+	text-decoration: none;
+	color: #fff;
+	passing: 5px 10 px;
+	font-family: sans-serif;
+	letter-spacing: 2px;
+}
+
+.classMenu li a:hover{
+	color: #FFD700;
+	transition: .4s;
+}
+.instructions{
+	position: relative;
+	text-align: center;
+	color: #fff;
+	top: 160px;
+}
+.instructions h1{
+	color:#fff;
+	text-decoration: aqua;
+	font-family: cursive;
+	width: 100%;
+	text-align: center;
+	margin-top: 350px;
+}
+
+.btn3{
+	background: #fff;
+	color: #000;
+	margin: 550px;
+}
+
+.btn3:hover{
+	background: #000;
+	color: #fff;
+	transition: .4s;
+}
