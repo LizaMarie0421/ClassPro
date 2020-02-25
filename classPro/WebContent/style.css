@@ -160,13 +160,26 @@ h2{
 	color: #fff;
 	top: 160px;
 }
+
 .instructions h1{
 	color:#fff;
 	text-decoration: aqua;
 	font-family: cursive;
 	width: 100%;
 	text-align: center;
-	margin-top: 350px;
+	margin-top: 175px;
+}
+.instructions p{
+	color:#fff;
+	font-family: cursive;
+	font-size: 25px;
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px 10px 10px 10px;
+	position: relative;
+	text-align: left;
+	float: right;
+	
 }
 
 .btn3{
