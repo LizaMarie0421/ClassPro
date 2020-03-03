@@ -135,6 +135,7 @@ h2{
 	float: left;
 	list-style: none;
 	margin: 20px;
+	column-count: 3;
 }
 
 .classMenu li{ 
@@ -193,3 +194,8 @@ h2{
 	color: #fff;
 	transition: .4s;
 }
+.dataTable tr th{
+	text-align=center;
+	width:300px; 
+	line-height:30px;
+	}
