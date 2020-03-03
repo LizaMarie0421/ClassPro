@@ -1,7 +1,8 @@
 <?php
     //connect to database
-    $conn= mysqli_connect('localhost', 'root','','classpro');
+    $conn= mysqli_connect('localhost','liza', 'liza123','classpro');
     echo 'hey this php is working it just hates you';
+    echo mysqli_get_server_info($conn);
     //check connection
     if ($conn){
         echo 'connection worked';
@@ -29,5 +30,7 @@
     	</tr>
 
     </table>
+    <?php  echo 'hey this php is working it just hates you';
+    echo mysqli_get_server_info($conn);?>
 </body>
 </html>

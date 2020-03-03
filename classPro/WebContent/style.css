@@ -75,6 +75,7 @@ body{
 .btn2{
 	background: #fff;
 	color: #000;
+	position:relative;
 }
 
 .btn1:hover{
@@ -195,7 +196,180 @@ h2{
 	transition: .4s;
 }
 .dataTable tr th{
-	text-align=center;
+	text-align:center;
 	width:300px; 
 	line-height:30px;
 	}
+	
+	
+	
+	
+	
+	
+table.dataTable {
+  margin-top: 50px;
+  margin-left: 15px;
+  font-family: "Times New Roman", Times, serif;
+  border: 0px solid #3C4694;
+  background-color: #EEEEEE;
+/*   background: rgba(.09, 0.9, .09, 0.09); */
+  width: 100%;
+  text-align: center;
+  width: 100%;
+  border: 1px;
+  min-width: 100%;
+  position: relative;
+  opacity: 0.99;
+  background: rgba(0, 0, 0, 0.10);
+}
+table.dataTable td, table.dataTable th {
+  border: 0px solid #24943A;
+  padding: 3px 2px;
+}
+table.dataTable tbody td {
+  font-size: 13px;
+  border: 1px solid #388094;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.19);
+}
+table.dataTable td:nth-child(even) {
+  background: #BAD3F5;
+  background: rgba(0, 0, 0, 0.30);
+}
+table.dataTable thead {
+  opacity: 0.99;
+/*   background: transparent; */
+  background: rgba(0, 0, 0, 0.09);
+}
+table.dataTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: center;
+  border: solid #388094;
+}
+
+table.dataTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #F0F0F0;
+  background: #3F5194;
+  background: -moz-linear-gradient(top, #6f7caf 0%, #52629e 66%, #3F5194 100%);
+  background: -webkit-linear-gradient(top, #6f7caf 0%, #52629e 66%, #3F5194 100%);
+  background: linear-gradient(to bottom, #6f7caf 0%, #52629e 66%, #3F5194 100%);
+  border-top: 1px solid #388094;
+  opacity: 0.99;
+  background: transparent;
+}
+table.dataTable tfoot td {
+  font-size: 13px;
+}
+table.dataTable tfoot .links {
+  text-align: right;
+}
+table.dataTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #388094;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+
+
+
+
+form{
+  margin-top: 30px;
+  margin-left: 15px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: center;
+}
+form legend{
+  font-size: 19px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: center;
+}
+fieldset{
+	border: solid #388094;
+}
+.selectableDB select{
+	display: inline-block;
+	
+}
+
+
+
+
+
+
+table.csClassTable {
+  margin-top: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: "Times New Roman", Times, serif;
+  border: 0px solid #3C4694;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+  border: 1px;
+  min-width: 100%;
+  position: relative;
+  opacity: 0.99;
+  background: rgba(0, 0, 0, 0.10);
+}
+table.csClassTable td, table.csClassTable th {
+  border: 0px solid #24943A;
+  padding: 3px 2px;
+}
+table.csClassTable tbody td {
+  font-size: 13px;
+  border: 1px solid #388094;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.19);
+}
+table.dataTable td:nth-child(even) {
+  background: #BAD3F5;
+  background: rgba(0, 0, 0, 0.30);
+}
+table.csClassTable thead {
+  opacity: 0.99;
+/*   background: transparent; */
+  background: rgba(0, 0, 0, 0.09);
+}
+table.csClassTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: center;
+  border: solid #388094;
+}
+
+table.csClassTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #F0F0F0;
+ 
+  opacity: 0.99;
+  background: transparent;
+}
+table.csClassTable tfoot td {
+  font-size: 13px;
+}
+table.csClassTable tfoot .links {
+  text-align: right;
+}
+table.csClassTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #388094;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+
