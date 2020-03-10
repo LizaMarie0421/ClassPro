@@ -103,7 +103,7 @@ body {
 }
 
 .left-column, .right-column {
-	flex-basis: 50%
+	flex-basis: 50%;
 }
 
 .right-column img {
@@ -173,9 +173,11 @@ h2 {
 
 .instructions {
 	position: relative;
-	text-align: center;
+	text-align: center-right;
 	color: #fff;
 	top: 160px;
+	margin-right: 40px;
+	margin-left: 75px;
 }
 
 .instructions h1 {
@@ -197,12 +199,15 @@ h2 {
 	position: relative;
 	text-align: left;
 	float: right;
+	margin-right: 40px;
+	margin-left: 50px;
 }
 
 .btn3 {
 	background: #fff;
 	color: #000;
 	margin: 550px;
+	position: relative;
 }
 
 .btn3:hover {
