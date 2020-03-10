@@ -14,3 +14,4 @@ function addClass() {
 	document.getElementById("className").innerHTML='this is working in out of script';
 
 }
+$("#buyerForm").clone().appendTo("#wrapper");

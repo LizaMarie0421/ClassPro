@@ -168,7 +168,7 @@
  </div>
 
 
-
+</form>
 
 
 
@@ -176,13 +176,13 @@
 
 <div class="drafttable" id= "selfRegTable">
     <div class="th">
-        <span class="td" id="">Class ID</span>
+        <span class="td" id="idClass">Class ID</span>
         <span class="td" id="titleClass">Class Name</span>
-        <span class="td">Competency</span>
-        <span class="td">Distribution Area</span>
-        <span class="td">Credit</span>
-        <span class="td">Current</span>
-        <span class="td">Taken</span>
+        <span class="td" id="competency">Competency</span>
+        <span class="td" id="distArea">Distribution Area</span>
+        <span class="td" id="credit">Credit</span>
+        <span class="td" id="">Current</span>
+        <span class="td"id="">Taken</span>
     </div>
     <form class="tr" method="post" action="#" id="selfRegForm">
         <span class="td"><input type="text" id="class" name="class" value=""/></span>
@@ -192,6 +192,8 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"></span>
+        
     </form>
     <form class="tr" method="post" action="#">
         <span class="td"><input type="text"/></span>
@@ -202,21 +204,66 @@
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
         <span class="td"></span>
-    </form>
+   </form>
+   <form class="tr" method="post" action="#">
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
+        <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"></span>
+   </form>
+   <form class="tr" method="post" action="#">
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
+        <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"></span>
+   </form>
 </div>
-    <div class="footer">
-		<div class="links"> <a class="active" href="#" onclick= "addClass()">Submit another class</a> <a href="#">2</a>
-	</div>
-    <button type="submit" value="Submit" href="#">Generate Advising Schedule</button></fieldset>
-<script>
-function addClass() {
-	var selfRegClass = document.getElementsByClassName("th");
-	var input = document.createElement("input");
-	input.type = "text";
 
-	selfRegClass.appendChild(input);
-	selfRegClass.appendChild(document.createElement("br"));
-}
+
+        
+        
+    <div class="footer">
+		<button type="submit" value="Submit">Generate Advising Schedule</button>
+		<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
+	</div>
+    </fieldset>
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+function add_fields() {
+    var objTo = document.getElementById('selfRegTable')
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="drafttable"><form class="tr" method="post" action="#"><span class="td"><input type="text" id="class" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span></form></div>';
+    
+    objTo.appendChild(divtest)
+}     
+
+
+        
+
+   
+
+
 </script>
 
 </body>

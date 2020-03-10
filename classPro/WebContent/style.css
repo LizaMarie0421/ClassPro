@@ -409,7 +409,6 @@ DIV.drafttable {
 	background-color: #EEEEEE;
 	width: 100%;
 	text-align: center;
-	width: 100%;
 	border: 1px;
 	min-width: 100%;
 	position: relative;
@@ -419,16 +418,16 @@ DIV.drafttable {
 
 FORM.tr, DIV.tr, DIV.th{
 	display: table-row;
-	margin:25px;
+/* 	margin:25px; */
 }
 
 SPAN.td {
 	display: table-cell;
-	margin:25px;
+/* 	margin:25px; */
 }
 
 form{
-	margin-top:100px;
+/* 	margin-top:100px; */
 }
 
 
