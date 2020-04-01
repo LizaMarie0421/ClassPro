@@ -423,7 +423,7 @@ DIV.drafttable {
 }
 
 FORM.tr, DIV.tr, DIV.th{
-	display: table-row;
+	display: table-row; 
 /* 	margin:25px; */
 }
 
