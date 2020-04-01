@@ -23,8 +23,8 @@
 <form><fieldset><legend>Pick your Major(s)/Minor(S)</legend>
 <div class= selectableDB> 
 <label for="major">Major 1: </label>
-<select>
-<option selected="selected" value="1">N/A</option>
+<select id="major1" onChange= "getInfo()">
+
 <option selected="selected" value="2">Africana Studies</option>
 <option selected="selected" value="3">Ahtropology</option>
 <option selected="selected" value="4">Art History</option>
@@ -56,10 +56,11 @@
 <option selected="selected" value="31">Studio Art</option>
 <option selected="selected" value="32">Gender/Sexuality Studies</option>
 <option selected="selected" value="33">Writing</option>
+<option selected="selected" value="1">N/A</option>
 </select>  
 <label for="major2">Major 2: </label>
-<select>
-<option selected="selected" value="1">N/A</option>
+<select id="major2" onChange= "getInfo()">
+
 <option selected="selected" value="2">Africana Studies</option>
 <option selected="selected" value="3">Ahtropology</option>
 <option selected="selected" value="4">Art History</option>
@@ -92,9 +93,10 @@
 <option selected="selected" value="31">Studio Art</option>
 <option selected="selected" value="32">Gender/Sexuality Studies</option>
 <option selected="selected" value="33">Writing</option>
+<option selected="selected" value="1">N/A</option>
 </select>
-  <label for="minor">Minor 1: </label><select>
-<option selected="selected" value="1">N/A</option>
+  <label for="minor">Minor 1: </label><select id="minor1" onChange= "getInfo()">
+
 <option selected="selected" value="2">Africana Studies</option>
 <option selected="selected" value="3">Ahtropology</option>
 <option selected="selected" value="4">Art History</option>
@@ -127,9 +129,10 @@
 <option selected="selected" value="31">Studio Art</option>
 <option selected="selected" value="32">Gender/Sexuality Studies</option>
 <option selected="selected" value="33">Writing</option>
+<option selected="selected" value="1">N/A</option>
 </select>
- <label for="minor2">Minor 2: </label><select>
-<option selected="selected" value="1">N/A</option>
+ <label for="minor2">Minor 2: </label><select id="minor2" onChange= "getInfo()">
+
 <option selected="selected" value="2">Africana Studies</option>
 <option selected="selected" value="3">Ahtropology</option>
 <option selected="selected" value="4">Art History</option>
@@ -162,6 +165,7 @@
 <option selected="selected" value="31">Studio Art</option>
 <option selected="selected" value="32">Gender/Sexuality Studies</option>
 <option selected="selected" value="33">Writing</option>
+<option selected="selected" value="1">N/A</option>
 </select><br /> 
   <br /> 
  </div>
@@ -182,6 +186,7 @@
         <span class="td" id="credit">Credit</span>
         <span class="td" id="">Current</span>
         <span class="td"id="">Taken</span>
+        <span class="td" >GPA Received</span>
     </div>
     <form class="tr" method="post" action="#" id="selfRegForm">
         <span class="td"><input type="text" id="class" name="class" value=""/></span>
@@ -191,6 +196,7 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"><input id= "gpa1" class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
         
     </form>
@@ -202,6 +208,7 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
    <form class="tr" method="post" action="#">
@@ -212,6 +219,7 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
    <form class="tr" method="post" action="#">
@@ -222,11 +230,15 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
 </div>
 
-
+<div class= "desplayInfo">
+	<p id="mj1"></p> <p id="mj2"></p> <p id="mn1"></p> <p id="mn2"></p>
+	<p>Your accumulated gpa is: <input type="text" id="gpaFinal" size="20"></p>
+</div>
  <div class= "descriptionTable">
  
 <table class="csClassTable">
@@ -269,7 +281,7 @@
  </div>     
         
     <div class="footer">
-		<button type="submit" value="Submit">Generate Advising Schedule</button>
+		<button type="submit" value="Submit" onclick="getGpa()">Generate Advising Schedule</button>
 		<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
 	</div>
     </fieldset>
@@ -289,15 +301,42 @@
 function add_fields() {
     var objTo = document.getElementById('selfRegTable')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<div class="drafttable"><form class="tr" method="post" action="#"><span class="td"><input type="text" id="class" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span></form></div>';
+    divtest.innerHTML = '<div class="drafttable"><form class="tr" method="post" action="#"><span class="td"><input type="text" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span><span class="td"><input size= "4" type="text"/></span></form></div>';
     
-    objTo.appendChild(divtest)
+    objTo.appendChild(divtest);
 }     
 
-
+function getInfo(){
+	var major1 = document.getElementById("major1");
+	var major2 = document.getElementById("major2");
+	var minor1 = document.getElementById("minor1");
+	var minor2 = document.getElementById("minor2");
+	
+	if(major1.options[major1.selectedIndex].text!= "N/A"){
+		document.getElementById("mj1").innerHTML = "Your chosen Major 1 is: "+ major1.options[major1.selectedIndex].text;
+	}
+	if(major2.options[major2.selectedIndex].text!= "N/A"){
+		document.getElementById("mj2").innerHTML = "Your chosen Major 2 is: "+ major2.options[major2.selectedIndex].text;
+	}
+	if(minor1.options[minor1.selectedIndex].text!= "N/A"){
+		document.getElementById("mn1").innerHTML = "Your chosen Minor 1 is: "+ minor1.options[minor1.selectedIndex].text;
+	}
+	if(minor2.options[minor2.selectedIndex].text!= "N/A"){
+		document.getElementById("mn2").innerHTML = "Your chosen Minor 2 is: "+ minor2.options[minor2.selectedIndex].text;
+	}
+}
         
 
-   
+function getGpa(){
+	int gpa= 0;
+	var myGPA = document.getElementById("gpa1");
+	var divtest = document.createElement("div");
+	//divtest.innerHTML=
+		
+  document.getElementById("gpaFinal").innerHTML = "gpa: "+ document.getElementById("gpa1").value;
+	
+	return myGPA;
+}
 
 
 </script>
