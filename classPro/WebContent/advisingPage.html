@@ -15,7 +15,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="classes/">DePauw Classes</a></li>
 					<li><a href="advisingPage.html">Advising Page</a></li>
-					<li><a href="gpaGenerator.html">GPA Generator</a></li>
+<!-- 					<li><a href="gpaGenerator.html">GPA Generator</a></li> -->
 				</ul>
 <!-- 			<button type="button" onclick= "hello()"> Hello</button> -->
 		</div>
@@ -26,7 +26,7 @@
 <select id="major1" onChange= "getInfo()">
 
 <option selected="selected" value="2">Africana Studies</option>
-<option selected="selected" value="3">Ahtropology</option>
+<option selected="selected" value="3">Anthropology</option>
 <option selected="selected" value="4">Art History</option>
 <option selected="selected" value="5">Asian Studies</option>
 <option selected="selected" value="6">Biology</option>
@@ -62,7 +62,7 @@
 <select id="major2" onChange= "getInfo()">
 
 <option selected="selected" value="2">Africana Studies</option>
-<option selected="selected" value="3">Ahtropology</option>
+<option selected="selected" value="3">Anthropology</option>
 <option selected="selected" value="4">Art History</option>
 <option selected="selected" value="5">Asian Studies</option>
 <option selected="selected" value="6">Biology</option>
@@ -98,7 +98,7 @@
   <label for="minor">Minor 1: </label><select id="minor1" onChange= "getInfo()">
 
 <option selected="selected" value="2">Africana Studies</option>
-<option selected="selected" value="3">Ahtropology</option>
+<option selected="selected" value="3">Anthropology</option>
 <option selected="selected" value="4">Art History</option>
 <option selected="selected" value="5">Asian Studies</option>
 <option selected="selected" value="6">Biology</option>
@@ -134,7 +134,7 @@
  <label for="minor2">Minor 2: </label><select id="minor2" onChange= "getInfo()">
 
 <option selected="selected" value="2">Africana Studies</option>
-<option selected="selected" value="3">Ahtropology</option>
+<option selected="selected" value="3">Anthropology</option>
 <option selected="selected" value="4">Art History</option>
 <option selected="selected" value="5">Asian Studies</option>
 <option selected="selected" value="6">Biology</option>
@@ -179,76 +179,97 @@
 
 <div class="drafttable" id= "selfRegTable">
     <div class="th">
-        <span class="td" id="idClass">Class ID</span>
-        <span class="td" id="titleClass">Class Name</span>
+    	<span class="td" id="">Year</span>
+    	<span class="td" id="">Semester</span>
+        <span class="td" id="titleClass">Class<br/> Name</span>
         <span class="td" id="competency">Competency</span>
-        <span class="td" id="distArea">Distribution Area</span>
-        <span class="td" id="credit">Credit</span>
+        <span class="td" id="distArea">Distribution<br/> Area</span>
+        <span class="td" id="credit"><br/>Credit</span>
         <span class="td" id="">Current</span>
-        <span class="td"id="">Taken</span>
-        <span class="td" >GPA Received</span>
+        <span class="td"id=""><br/>Taken</span>
+        <span class="td" >GPA <br/>Received</span>
     </div>
-    <form class="tr" method="post" action="#" id="selfRegForm">
-        <span class="td"><input type="text" id="class" name="class" value=""/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
+    <form name="myForm" onsubmit="return validateForm()" class="tr" method="GET" action="advisingPage/formResults.html" id="selfRegForm">
+    	<span class="td"><input type="text" name="classYear"/></span>
+        <span class="td"><input type="text" name="classSem"/></span>
+        <span class="td"><input type="text" name= "className"/></span>
+        <span class="td"><input type="text" name= "classCom"/></span>
+        <span class="td"><input type="text" name= "classDA"/></span>
+        <span class="td"><input type="text" size= "4" name= "classCredit"id= "credit1"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
         <span class="td"><input id= "gpa1" class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
-        
+        <input type="submit" value="Submit" />      
     </form>
-    <form class="tr" method="post" action="#">
+    <form  name="myForm1" class="tr" method="post" action="#">
+    	<span class="td"><input type="text" name="classYear"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit2"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa2" class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
-   <form class="tr" method="post" action="#">
+   <form name="myForm2" class="tr" method="post" action="#">
+   		<span class="td"><input type="text" name="classYear"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit3"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa3" class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
-   <form class="tr" method="post" action="#">
+   <form  name="myForm3" class="tr" method="post" action="#">
+   		<span class="td"><input type="text" name="classYear"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit4"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa4" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"></span>
+   </form>
+    <form name="myForm4" class="tr" method="post" action="#">
+   		<span class="td"><input type="text" name="classYear"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit5"/></span>
+        <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
+        <span class="td"><input type="radio" id="took" name="status" value="took"></span>
+        <span class="td"><input id= "gpa5" class= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
 </div>
 
 <div class= "desplayInfo">
 	<p id="mj1"></p> <p id="mj2"></p> <p id="mn1"></p> <p id="mn2"></p>
-	<p>Your accumulated gpa is: <input type="text" id="gpaFinal" size="20"></p>
+	<p>Number of Credits Registering: <input type="text" id="creditNum" size="20"> Your accumulated gpa is: <input type="text" id="gpaFinal" size="20"></p>
+	<p>Register a semester Off-Campus: Year: <input type="text" id="yearOffCampus" size="20"> Semester Term: <input type="text" id="semOffCampus" size="20"></p>
 </div>
+
+
  <div class= "descriptionTable">
  
 <table class="csClassTable">
 			<thead>
 				<tr>
-					<th>Class ID</th>
+					<th>Semester/ Year</th>
 					<th>Class Name</th>
 					<th>Competency</th>
 					<th>Distribution Area </th>
 					<th>Credit</th>
+					<th>GPA Received</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -258,8 +279,8 @@
 			</tfoot>
 			<tbody>
 				<tr>
-					<td>Department + Class ID <br/>
-						Example: Math123</td>
+					<td>Semester Term & Year<br/>
+						Example: Spring/ 2020</td>
 					<td>Example: <br/>
 					Computational Discrete Math</td>
 					<td> S: Senior Seminar <br/><br/>
@@ -267,12 +288,13 @@
 						 W:	Writing Course
 					</td>
 					<td>SM: Science / Math <br/><br/>
-						AH: Arts and Humanitities <br/><br/>
+						AH: Arts and Humanities <br/><br/>
 						SS: Social Science <br/><br/>
 						GL: Global Learning <br/><br/>
-						PPD: Power, Privledge and Diversity
+						PPD: Power, Priviledge and Diversity
 					</td>
 					<td>.25-1.0</td>
+					<td>Only if class is registered as Taken</td>
 				</tr>				
 			</tbody>
 		</table>	
@@ -281,17 +303,13 @@
  </div>     
         
     <div class="footer">
-		<button type="submit" value="Submit" onclick="getGpa()">Generate Advising Schedule</button>
-		<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
+<!-- 		<button type="submit" value="Submit" onclick="getGpa();">Generate Advising Schedule</button>  -->
+		<input type="button" onclick="getGpa();" value="Generate GPA" class="btn btn1" />
+		<input type="button" id="more_fields" onclick="add_fields();" value="Add More" class="btn btn1"/>
+		<a href="advisingPage/formResults.html" class="btn btn1"> Generate Schedule</a>
 	</div>
     </fieldset>
-    
-    
-    
-
-    
-    
-    
+       
     
     
     
@@ -299,7 +317,7 @@
     
 <script>
 function add_fields() {
-    var objTo = document.getElementById('selfRegTable')
+    var objTo = document.getElementById('selfRegTable');
     var divtest = document.createElement("div");
     divtest.innerHTML = '<div class="drafttable"><form class="tr" method="post" action="#"><span class="td"><input type="text" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span><span class="td"><input size= "4" type="text"/></span></form></div>';
     
@@ -328,16 +346,40 @@ function getInfo(){
          
 
 function getGpa(){
-	int gpa= 0;
-	var myGPA = document.getElementById("gpa1");
-	var divtest = document.createElement("div");
-	//divtest.innerHTML=
-		
-  document.getElementById("gpaFinal").innerHTML = "gpa: "+ document.getElementById("gpa1").value;
+	var myGPA1= document.getElementById("gpa1").value;
+	var myGPA2= document.getElementById("gpa2").value;
+	var myGPA3= document.getElementById("gpa3").value;
+	var myGPA4= document.getElementById("gpa4").value;
 	
-	return myGPA;
+	var score= Number(myGPA1)+ Number(myGPA2)+ Number(myGPA3)+ Number(myGPA4);
+	finalGPA= score/4;
+    document.getElementById("gpaFinal").value = finalGPA;
 } 
 
+function getCreditNum(){
+	var myCredit1= document.getElementById("credit1").value;
+	var myCredit2= document.getElementById("credit2").value;
+	var myCredit3= document.getElementById("credit3").value;
+	var myCredit4= document.getElementById("credit4").value;
+	
+	var credits= Number(credit1)+ Number(credit2)+ Number(credit3)+ Number(credit4);
+    document.getElementById("creditNum").value = credits;
+} 
+
+function validateForm() {
+	  var year = document.forms["myForm"]["classYear"].value;
+	  var creditString = document.forms["myForm"]["classCredit"].value;
+	  var credit= Number(creditString);
+	  
+	  if (isNaN(year) || year < 2000 || year > 2020){
+	    alert("Class Year not valid");	   
+	  	return false;
+	  }
+	  if (isNaN(credit) || credit < .25 ||credit > 4.0){
+	    alert("Credit not valid");	   
+	    return false;
+	  }
+	}
 
 </script>
 
