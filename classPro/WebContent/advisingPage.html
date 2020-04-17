@@ -195,23 +195,23 @@
         <span class="td"><input type="text" name= "className"/></span>
         <span class="td"><input type="text" name= "classCom"/></span>
         <span class="td"><input type="text" name= "classDA"/></span>
-        <span class="td"><input type="text" size= "4" name= "classCredit"id= "credit1"/></span>
+        <span class="td"><input type="text" size= "4" name= "credit"id= "credit1"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input id= "gpa1" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa1" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
         <input type="submit" value="Submit" />      
     </form>
     <form  name="myForm1" class="tr" method="post" action="#">
-    	<span class="td"><input type="text" name="classYear"/></span>
+    	<span class="td"><input type="text" name="classYear1"/></span>
+        <span class="td"><input type="text"name="classSem1"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text" size= "4" id= "credit2"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit2" name= "credit"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input id= "gpa2" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa2" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
    <form name="myForm2" class="tr" method="post" action="#">
@@ -220,10 +220,10 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text" size= "4" id= "credit3"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit3" name= "credit"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input id= "gpa3" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa3" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
    <form  name="myForm3" class="tr" method="post" action="#">
@@ -232,10 +232,10 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text" size= "4" id= "credit4"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit4" name= "credit"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input id= "gpa4" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa4" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
     <form name="myForm4" class="tr" method="post" action="#">
@@ -244,10 +244,10 @@
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
         <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text" size= "4" id= "credit5"/></span>
+        <span class="td"><input type="text" size= "4" id= "credit5"name= "credit"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
-        <span class="td"><input id= "gpa5" class= "gpa" size= "4" type="text"/></span>
+        <span class="td"><input id= "gpa5" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
 </div>
@@ -279,7 +279,7 @@
 			</tfoot>
 			<tbody>
 				<tr>
-					<td>Semester Term & Year<br/>
+					<td>Semester Term and Year<br/>
 						Example: Spring/ 2020</td>
 					<td>Example: <br/>
 					Computational Discrete Math</td>
@@ -346,6 +346,7 @@ function getInfo(){
          
 
 function getGpa(){
+	
 	var myGPA1= document.getElementById("gpa1").value;
 	var myGPA2= document.getElementById("gpa2").value;
 	var myGPA3= document.getElementById("gpa3").value;
@@ -354,28 +355,79 @@ function getGpa(){
 	var score= Number(myGPA1)+ Number(myGPA2)+ Number(myGPA3)+ Number(myGPA4);
 	finalGPA= score/4;
     document.getElementById("gpaFinal").value = finalGPA;
+    
+   
+   
 } 
-
-function getCreditNum(){
-	var myCredit1= document.getElementById("credit1").value;
-	var myCredit2= document.getElementById("credit2").value;
-	var myCredit3= document.getElementById("credit3").value;
-	var myCredit4= document.getElementById("credit4").value;
+// function getGpaBySem(){
+// 	//NOT WORKING
+// 	console.log("functioncall");
+// 	var year= document.getElementsByName("year");
+// 	var semester= document.getElementsByName("semester");
+// 	var gpaName= document.getElementsByName("gpa");
+// 	var finalGpaScoreSpring, finalGpaScoreFall,gpaTotal, gpaScore,gpaYear, yearsNum;
+// 	var i;
 	
-	var credits= Number(credit1)+ Number(credit2)+ Number(credit3)+ Number(credit4);
-    document.getElementById("creditNum").value = credits;
-} 
+// 	for (i = 0; i < year.length; i++) {
+// 	  console.log(year);
+// 	  if (semester[i].value == "Spring") {
+// 	    for (var j = 0; j < gpa.length; j++){
+// 	    	gpaScore= gpaScore+Number(gpa[j].value);
+// 	    	finalGpaScoreSpring= gpaScore/gpa.length;
+// 	    	console.log("Gpa Year: "+ year[i].value+ "Gpa Semester: "+ semester[j].value+ "gpaSpring: "+finalGpaScoreSpring );
+// 	    }
+// 	  }
+// 	  else if (semester[i].value == "Fall") {
+// 		  for (var j = 0; j < gpa.length; j++){
+// 			  gpaScore= gpaScore+Number(gpa[j].value);
+// 			  finalGpaScoreFall= gpaScore/gpa.length;
+// 		      console.log("Gpa Year: "+ year[i].value+ "Gpa Semester: "+ semester[j].value+ "gpaFall: "+finalGpaScoreFall );
+
+// 	     }
+// 	  }
+// 	 gpaYear=gpaYear+finalGpaScoreSpring+finalSGpaScoreFall;
+// 	 if (year[i].value!==""){
+// 		 yearsNum=0;
+// 		 yearsNum++;
+// 	 }
+//  	console.log("Gpa Year: "+ year[i].value+ "Gpa Semester: "+ semester[j].value+ "yearsNum: "+yearsNum+ "gpaYear: "+gpaYear );
+
+//     }
+// 	 gpaTotal= gpaYear/Number(yearNum);
+// 	 document.getElementById("gpaFinal").value = gpaTotal;
+
+// }
+// function getCreditNum(){
+// 	//OVERALL NOT WORKING
+// 	var myCredit1= document.getElementById("credit1").value;
+// 	var myCredit2= document.getElementById("credit2").value;
+// 	var myCredit3= document.getElementById("credit3").value;
+// 	var myCredit4= document.getElementById("credit4").value;
+	
+// 	var credits= Number(credit1)+ Number(credit2)+ Number(credit3)+ Number(credit4);
+//     document.getElementById("creditNum").value = credits;
+//     //2ND METHOD
+// //     var credit=document.getElementsByName("credit");
+// //     var i;
+// //     for (i = 0; i < credit.length; i++) {
+// //       if (credit[i].value != "") {
+// //      	 creditNum= Number(credit[i].value);
+// //       }
+// //       creditTotal=creditTotal+creditNum;
+// //     }
+// //     document.getElementById("creditNum").value = creditTotal;
+// } 
 
 function validateForm() {
 	  var year = document.forms["myForm"]["classYear"].value;
 	  var creditString = document.forms["myForm"]["classCredit"].value;
 	  var credit= Number(creditString);
 	  
-	  if (isNaN(year) || year < 2000 || year > 2020){
+	  if (year=="")|| year < 2000 || year > 2020){
 	    alert("Class Year not valid");	   
 	  	return false;
 	  }
-	  if (isNaN(credit) || credit < .25 ||credit > 4.0){
+	  if (credit=="" || credit < .25 ||credit > 4.0){
 	    alert("Credit not valid");	   
 	    return false;
 	  }
