@@ -30,10 +30,10 @@
 			<thead>
 				<tr>
 					<th>Class Year</th>
-					<th>Class Semester</th>
+					<th>Class <br/>Semester</th>
 					<th>Class Name</th>
 					<th>Competency</th>
-					<th>Distribution Area </th>
+					<th>Distribution<br/> Area </th>
 					<th>Credit</th>
 				</tr>
 			</thead>
@@ -103,60 +103,36 @@
 	</table>
 	<script>
 	var variableUrl=window.location.search;
-	//?classYear=2017&classSem=Fall&className=CS1&classCom=Q&classDA=SM&credit=1&gpa=
-	document.write(variableUrl);
     parseURL(variableUrl);
 	function parseURL(variableUrl){
 		var start= variableUrl.indexOf("?")+1,
 			end= variableUrl.length+1,
 			needUrl= variableUrl.slice(start,end-1),
 			param=needUrl.split("&");
-        var classYearUrl, classYear;
-        var classSemUrl, classSem;
-        var classNameUrl, className;
-        var classComUrl, classCom;
-        var classDAUrl, classDA;
-        var creditUrl,credit;
-      document.write("this is param: ", param);
-			
-		//var splitURL= window.location.search.split();	
+        var classYearUrl, classYear,classSemUrl, classSem, classNameUrl, className, 
+        classComUrl, classCom, classDAUrl, classDA, creditUrl,credit;
 		
 		if (needUrl === variableUrl || needUrl === "") return;
-		//document.write("_________param 0", param[0]);
-    //classYear=2017
-    
-    //var splittedd= param[0].split("=", 2);
-    //document.write("________splittedd: ", splittedd);
-    //classYear,2017
-    
-   // document.write("****", splittedd[1]);
-   //2017
 		for (i=0; i<param.length;i++){
-			//classYear=2017
-      
 			classYearUrl=param[0].split("=", 2);
 			classSemUrl=param[1].split("=", 2);
 			classNameUrl=param[2].split("=", 2);
 			classComUrl=param[3].split("=", 2);
 			classDAUrl=param[4].split("=", 2);
 			creditUrl=param[5].split("=", 2);
-      //document.write("this is i: ", i);
-      //document.write("classYearUrl", classYearUrl);
-			//2017
 			classYear= classYearUrl[1];
 			classSem= classSemUrl[1];
 			className= classNameUrl[1];;
 			classCom= classComUrl[1];;
 		 	classDA= classDAUrl[1];;
 		 	credit= creditUrl[1];
-    //  document.write("** class year: ",classYear);
 		}
-		document.getElementById("finalclassYear").innerHTML ="Class Year: "+ classYear;
-		document.getElementById("finalclassSem").innerHTML ="Class Semester: "+ classSem;
-		document.getElementById("finalclassName").innerHTML ="Class Name: "+ className;
-		document.getElementById("finalclassCom").innerHTML ="Class Competency: "+ classCom;
-		document.getElementById("finalclassDA").innerHTML ="Class Distribution Area: "+ classDA;
-		document.getElementById("finalclassCredit").innerHTML ="Class Credit: "+ credit;
+		document.getElementById("finalclassYear").innerHTML = classYear;
+		document.getElementById("finalclassSem").innerHTML =classSem;
+		document.getElementById("finalclassName").innerHTML =className;
+		document.getElementById("finalclassCom").innerHTML = classCom;
+		document.getElementById("finalclassDA").innerHTML =classDA;
+		document.getElementById("finalclassCredit").innerHTML = credit;
 		
         
 	}
