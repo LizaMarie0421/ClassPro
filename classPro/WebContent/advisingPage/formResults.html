@@ -24,10 +24,48 @@
 			</ul>
 		</div>
 	</header>
-	<div id="finalclassYear"></div>
-	<div id="finalclassSem"></div>>
+
+<div class= "Form Results">
+<table class="csClassTable">
+			<thead>
+				<tr>
+					<th>Class Year</th>
+					<th>Class Semester</th>
+					<th>Class Name</th>
+					<th>Competency</th>
+					<th>Distribution Area </th>
+					<th>Credit</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="7">
+					</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<td id="finalclassYear"></td>
+					<td id="finalclassSem"></td>
+					<td id="finalclassName"></td>
+					<td id="finalclassCom"></td>
+					<td id="finalclassDA"></td>
+					<td id="finalclassCredit"></td>
+				</tr>
+				
+				
+			</tbody>
+		</table>	
+	
 
 
+
+
+
+
+
+
+</div>
 	<table class="csClassTable">
 		<thead>
 			<tr>
@@ -64,16 +102,64 @@
 		</tbody>
 	</table>
 	<script>
-		function processUser()
-		  {
-		    var parameters = location.search.substring(1).split("&");
-		    var temp = parameters[0].split("=");
-		    l = unescape(temp[1]);
-		    temp = parameters[1].split("=");
-		    p = unescape(temp[1]);
-		    document.getElementById("finalclassYear").innerHTML = l;
-		    document.getElementById("finalclassSem").innerHTML = p;
-		  }
+	var variableUrl=window.location.search;
+	//?classYear=2017&classSem=Fall&className=CS1&classCom=Q&classDA=SM&credit=1&gpa=
+	document.write(variableUrl);
+    parseURL(variableUrl);
+	function parseURL(variableUrl){
+		var start= variableUrl.indexOf("?")+1,
+			end= variableUrl.length+1,
+			needUrl= variableUrl.slice(start,end-1),
+			param=needUrl.split("&");
+        var classYearUrl, classYear;
+        var classSemUrl, classSem;
+        var classNameUrl, className;
+        var classComUrl, classCom;
+        var classDAUrl, classDA;
+        var creditUrl,credit;
+      document.write("this is param: ", param);
+			
+		//var splitURL= window.location.search.split();	
+		
+		if (needUrl === variableUrl || needUrl === "") return;
+		//document.write("_________param 0", param[0]);
+    //classYear=2017
+    
+    //var splittedd= param[0].split("=", 2);
+    //document.write("________splittedd: ", splittedd);
+    //classYear,2017
+    
+   // document.write("****", splittedd[1]);
+   //2017
+		for (i=0; i<param.length;i++){
+			//classYear=2017
+      
+			classYearUrl=param[0].split("=", 2);
+			classSemUrl=param[1].split("=", 2);
+			classNameUrl=param[2].split("=", 2);
+			classComUrl=param[3].split("=", 2);
+			classDAUrl=param[4].split("=", 2);
+			creditUrl=param[5].split("=", 2);
+      //document.write("this is i: ", i);
+      //document.write("classYearUrl", classYearUrl);
+			//2017
+			classYear= classYearUrl[1];
+			classSem= classSemUrl[1];
+			className= classNameUrl[1];;
+			classCom= classComUrl[1];;
+		 	classDA= classDAUrl[1];;
+		 	credit= creditUrl[1];
+    //  document.write("** class year: ",classYear);
+		}
+		document.getElementById("finalclassYear").innerHTML ="Class Year: "+ classYear;
+		document.getElementById("finalclassSem").innerHTML ="Class Semester: "+ classSem;
+		document.getElementById("finalclassName").innerHTML ="Class Name: "+ className;
+		document.getElementById("finalclassCom").innerHTML ="Class Competency: "+ classCom;
+		document.getElementById("finalclassDA").innerHTML ="Class Distribution Area: "+ classDA;
+		document.getElementById("finalclassCredit").innerHTML ="Class Credit: "+ credit;
+		
+        
+	}
 	</script>
 </body>
 </html>
