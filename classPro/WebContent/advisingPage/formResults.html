@@ -20,7 +20,7 @@
 				<li><a href="../index.html">Home</a></li>
 				<li><a href="../classes/index.html">DePauw Classes</a></li>
 				<li><a href="../advisingPage.html">Advising Page</a></li>
-				<li><a href="advisingPage/formResults.html">form Page</a></li>
+				<li><a href="advisingPage/formResults.html">Form Page</a></li>
 			</ul>
 		</div>
 	</header>
@@ -34,7 +34,6 @@
 					<th>Class Name</th>
 					<th>Competency</th>
 					<th>Distribution<br/> Area </th>
-					<th>Credit</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -50,7 +49,6 @@
 					<td id="finalclassName"></td>
 					<td id="finalclassCom"></td>
 					<td id="finalclassDA"></td>
-					<td id="finalclassCredit"></td>
 				</tr>
 				
 				
@@ -86,6 +84,25 @@
 		</tbody>
 	</table>
 	
+	<table class="compTable" id= "compTable">
+		<thead>
+			<tr>
+				<th>Credit Counter</th>
+				<th>GPA Tracker</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="7"></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td id= "creditCounter"></td>
+				<td id="gpaTracker"></td>
+			</tr>
+		</tbody>
+	</table>
 	
 	</div>
 		<div> 
@@ -177,7 +194,7 @@
 			needUrl= variableUrl.slice(start,end-1),
 			param=needUrl.split("&");
         var classYearUrl, classYear,classSemUrl, classSem, classNameUrl, className, 
-        classComUrl, classCom, classDAUrl, classDA, creditUrl,credit;
+        classComUrl, classCom, classDAUrl, classDA, creditUrl,credit, gpaUrl, gpa, statusUrl, status;
 		
 		if (needUrl === variableUrl || needUrl === "") return;
 		for (i=0; i<param.length;i++){
@@ -187,26 +204,40 @@
 			classComUrl=param[3].split("=", 2);
 			classDAUrl=param[4].split("=", 2);
 			creditUrl=param[5].split("=", 2);
+			statusUrl=param[6].split("=", 2);
+			gpaUrl=param[7].split("=", 2);
+			
 			classYear= classYearUrl[1];
 			classSem= classSemUrl[1];
 			className= classNameUrl[1];
 			classCom= classComUrl[1];
 		 	classDA= classDAUrl[1];
 		 	credit= creditUrl[1];
+		 	status= statusUrl[1];
+		 	gpa= gpaUrl[1];
 		}
 		document.getElementById("finalclassYear").innerHTML = classYear;
 		document.getElementById("finalclassSem").innerHTML =classSem;
 		document.getElementById("finalclassName").innerHTML =className;
 		document.getElementById("finalclassCom").innerHTML = classCom;
 		document.getElementById("finalclassDA").innerHTML =classDA;
-		document.getElementById("finalclassCredit").innerHTML = credit;
+		
+		//document.getElementById("finalclassGPA").innerHTML = gpa;
+			//document.write("gpa in function1: ", gpa);
+			document.getElementById("creditCounter").innerHTML = credit;
+		//for (i =0;i<5;i++ ){
+			if(status== "took"){
+				getGpa(gpa, credit);
+			}
+			//document.write("gpa in function2: ", gpa);
+		//}
 	}
 	statusUpdate();
 	function statusUpdate(){
 		var classCom= document.getElementById("finalclassCom").innerHTML;
 		var classDA= document.getElementById("finalclassDA").innerHTML;
-		document.write("classCom:", classCom);
-		document.write("classDA: ", classDA);
+		//document.write("classCom:", classCom);
+		//document.write("classDA: ", classDA);
 		
 		var qStatus, wStatus, sStatus, ahStatus, ppdStatus, glStatus, ssStatus, smStatus;
 		var counterQ =0, counterW =0, counterS =0, counterAH =0, counterPPD =0, counterSS =0, counterSM =0, counterGL =0; 
@@ -214,7 +245,7 @@
 		
 		if (classCom=="Q"){
 			counterQ=1;		
-			document.write("counterQ:", counterQ);
+			//document.write("counterQ:", counterQ);
 		}
 		else if (classCom=="W"){
 			counterW= 1;
@@ -238,89 +269,89 @@
 		else if (classDA=="GL"){
 			counterGL= 1;
 		}
-		document.write("counterSM:   ", counterSM);
+		//document.write("counterSM:   ", counterSM);
 		
 		
-		document.write("counterQ:", counterQ);
+		//document.write("counterQ:", counterQ);
 		if(Number(counterQ)==1){
-			qStatus= "Completed";
+			qStatus= "1/1 Completed";
 		}
 		else if(Number(counterQ)==0)  {
-			qStatus= "Not Completed";
+			qStatus= "0/1";
 		}
-		document.write("qStatus:", qStatus);
+		//document.write("qStatus:", qStatus);
 		document.getElementById("qStatus").innerHTML = qStatus;
 		
 		if(Number(counterW)==1){
-			wStatus= "Completed";
+			wStatus= "1/1 Completed";
 		}
 		else if(Number(counterW)==0)  {
-			wStatus= "Not Completed";
+			wStatus= "0/1";
 		}
 		document.getElementById("wStatus").innerHTML = wStatus;
 		
 		if(Number(counterS)==1){
-			sStatus= "Completed";
+			sStatus= "1/1 Completed";
 		}
 		else if(Number(counterS)==0)  {
-			sStatus= "Not Completed";
+			sStatus= "0/1";
 		}
 		document.getElementById("sStatus").innerHTML = sStatus;
 		
 		
 		
 		if(Number(counterPPD)==1){
-			ppdStatus= "Completed";
+			ppdStatus= "1/1 Completed";
 		}
 		else if(Number(counterPPD)==0)  {
-			ppdStatus= "Not Completed";
+			ppdStatus= "0/1";
 		}
 		document.getElementById("ppdStatus").innerHTML = ppdStatus;
 		
 		 if(Number(counterGL)==1){
-			glStatus= "Completed";
+			glStatus= "1/1 Completed";
 		}
 		
 		 else if(Number(counterGL)==0){
-				glStatus= "Not Completed";
+				glStatus= "0/1";
 		}
 		 document.getElementById("glStatus").innerHTML = glStatus;
 		 
 		 
 		 
-		 document.write("smStatus1:******** ", smStatus);
+		 //document.write("smStatus1:******** ", smStatus);
 			if(Number(counterSM)==1){
-				smStatus= "Almost Completed";
+				smStatus= "1/2";
 			}
 			else if(Number(counterSM)==2){
-				smStatus= "Completed";
+				smStatus= "2/2 Completed";
 			}
 			else if(Number(counterSM)==0){
-				smStatus= "Not Completed";
+				smStatus= "0/2";
 			}
-			document.write("smStatus2: ", smStatus);
+			//document.write("smStatus2: ", smStatus);
 			document.getElementById("smStatus").innerHTML = smStatus;
 		 
 		if(Number(counterAH)==1){
-			ahStatus= "Almost Completed";
+			ahStatus= "1/2";
 		}
 			
 		else if(Number(counterAH)==2){
-			ahStatus= "Completed";
+			ahStatus= "2/2 Completed";
 		}
 		else if(Number(counterAH)==0){
-			ahStatus= "Not Completed";
+			ahStatus= "0/2";
 		}
 		document.getElementById("ahStatus").innerHTML = ahStatus;
 		
 		if(Number(counterSS)==1){
-			ssStatus= "Almost Completed";
+			ssStatus= "1/2";
 		}
 		else if(Number(counterSS)==2){
-			ssStatus= "Completed";
+			ssStatus= "2/2 Completed";
 		}
 		else if(Number(counterSS)==0){
-			ssStatus= "Not Completed";
+			ssStatus= "0/2";
 		}
 		document.getElementById("ssStatus").innerHTML = ssStatus;
 		
@@ -328,6 +359,26 @@
 		
 		
 	}
+	
+	
+	function getGpa(gpa, credit){
+		var score=0;
+		var mygpa= Number(gpa);
+		var mycredit= Number(credit);
+// 		document.write("score: __", score);
+// 		document.write("mygpa: __", mygpa);
+		
+		score= score+ mygpa;
+// 		document.write("score: __", score);
+// 		document.write("mycredit: __", mycredit);
+		finalGPA= score/mycredit;
+// 		document.write("***finalGPA: __", finalGPA);
+
+	    document.getElementById("gpaTracker").innerHTML = finalGPA;
+	    
+	   
+	   
+	} 
 	
 	</script>
 </body>
