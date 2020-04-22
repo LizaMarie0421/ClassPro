@@ -20,7 +20,7 @@
 				<li><a href="../index.html">Home</a></li>
 				<li><a href="../classes/index.html">DePauw Classes</a></li>
 				<li><a href="../advisingPage.html">Advising Page</a></li>
-<!-- 				<li><a href="../gpaGenerator.html">GPA Generator</a></li> -->
+				<li><a href="advisingPage/formResults.html">form Page</a></li>
 			</ul>
 		</div>
 	</header>
@@ -57,13 +57,77 @@
 			</tbody>
 		</table>	
 	
-
-
-
-
-
-
-
+	<div> 
+	<table class="compTable" id= "compTable" >
+		<thead>
+			<tr>
+				<th>Competency</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="7"></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>Q</td>
+				<td id="qStatus"></td>
+			</tr>
+			<tr>
+				<td>W</td>
+				<td id="wStatus"></td>
+			</tr>
+			<tr>
+				<td>S</td>
+				<td id="sStatus"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	</div>
+		<div> 
+	<table class="distrTable"  >
+		<thead>
+			<tr>
+				<th>Distribution Area</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="7"></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>AH</td>
+				<td id="ahStatus"></td>
+			</tr>
+			<tr>
+				<td>PPD</td>
+				<td id="ppdStatus"></td>
+			</tr>
+			<tr>
+				<td>SM</td>
+				<td id="smStatus"></td>
+			</tr>
+			<tr>
+				<td>GL</td>
+				<td id="glStatus"></td>
+			</tr>
+			<tr>
+				<td>SS</td>
+				<td id="ssStatus"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	</div>
+	
 
 </div>
 	<table class="csClassTable">
@@ -101,6 +165,9 @@
 			</tr>
 		</tbody>
 	</table>
+	
+
+	
 	<script>
 	var variableUrl=window.location.search;
     parseURL(variableUrl);
@@ -122,9 +189,9 @@
 			creditUrl=param[5].split("=", 2);
 			classYear= classYearUrl[1];
 			classSem= classSemUrl[1];
-			className= classNameUrl[1];;
-			classCom= classComUrl[1];;
-		 	classDA= classDAUrl[1];;
+			className= classNameUrl[1];
+			classCom= classComUrl[1];
+		 	classDA= classDAUrl[1];
 		 	credit= creditUrl[1];
 		}
 		document.getElementById("finalclassYear").innerHTML = classYear;
@@ -133,9 +200,135 @@
 		document.getElementById("finalclassCom").innerHTML = classCom;
 		document.getElementById("finalclassDA").innerHTML =classDA;
 		document.getElementById("finalclassCredit").innerHTML = credit;
-		
-        
 	}
+	statusUpdate();
+	function statusUpdate(){
+		var classCom= document.getElementById("finalclassCom").innerHTML;
+		var classDA= document.getElementById("finalclassDA").innerHTML;
+		document.write("classCom:", classCom);
+		document.write("classDA: ", classDA);
+		
+		var qStatus, wStatus, sStatus, ahStatus, ppdStatus, glStatus, ssStatus, smStatus;
+		var counterQ =0, counterW =0, counterS =0, counterAH =0, counterPPD =0, counterSS =0, counterSM =0, counterGL =0; 
+		
+		
+		if (classCom=="Q"){
+			counterQ=1;		
+			document.write("counterQ:", counterQ);
+		}
+		else if (classCom=="W"){
+			counterW= 1;
+		}
+		else if (classCom=="S"){
+			counterS= 1;
+		}
+		
+		if (classDA=="AH"){
+			counterAH=counterAH+1;			
+		}
+		else if (classDA=="PPD"){
+			counterPPD= 1;
+		}
+		else if (classDA=="SS"){
+			counterSS= counterSS+ 1;
+		}
+		else if (classDA=="SM"){
+			counterSM= counterSM+1;
+		}
+		else if (classDA=="GL"){
+			counterGL= 1;
+		}
+		document.write("counterSM:   ", counterSM);
+		
+		
+		document.write("counterQ:", counterQ);
+		if(Number(counterQ)==1){
+			qStatus= "Completed";
+		}
+		else if(Number(counterQ)==0)  {
+			qStatus= "Not Completed";
+		}
+		document.write("qStatus:", qStatus);
+		document.getElementById("qStatus").innerHTML = qStatus;
+		
+		if(Number(counterW)==1){
+			wStatus= "Completed";
+		}
+		else if(Number(counterW)==0)  {
+			wStatus= "Not Completed";
+		}
+		document.getElementById("wStatus").innerHTML = wStatus;
+		
+		if(Number(counterS)==1){
+			sStatus= "Completed";
+		}
+		else if(Number(counterS)==0)  {
+			sStatus= "Not Completed";
+		}
+		document.getElementById("sStatus").innerHTML = sStatus;
+		
+		
+		
+		if(Number(counterPPD)==1){
+			ppdStatus= "Completed";
+		}
+		else if(Number(counterPPD)==0)  {
+			ppdStatus= "Not Completed";
+		}
+		document.getElementById("ppdStatus").innerHTML = ppdStatus;
+		
+		 if(Number(counterGL)==1){
+			glStatus= "Completed";
+		}
+		
+		 else if(Number(counterGL)==0){
+				glStatus= "Not Completed";
+		}
+		 document.getElementById("glStatus").innerHTML = glStatus;
+		 
+		 
+		 
+		 document.write("smStatus1:******** ", smStatus);
+			if(Number(counterSM)==1){
+				smStatus= "Almost Completed";
+			}
+			else if(Number(counterSM)==2){
+				smStatus= "Completed";
+			}
+			else if(Number(counterSM)==0){
+				smStatus= "Not Completed";
+			}
+			document.write("smStatus2: ", smStatus);
+			document.getElementById("smStatus").innerHTML = smStatus;
+		 
+		if(Number(counterAH)==1){
+			ahStatus= "Almost Completed";
+		}
+			
+		else if(Number(counterAH)==2){
+			ahStatus= "Completed";
+		}
+		else if(Number(counterAH)==0){
+			ahStatus= "Not Completed";
+		}
+		document.getElementById("ahStatus").innerHTML = ahStatus;
+		
+		if(Number(counterSS)==1){
+			ssStatus= "Almost Completed";
+		}
+		else if(Number(counterSS)==2){
+			ssStatus= "Completed";
+		}
+		else if(Number(counterSS)==0){
+			ssStatus= "Not Completed";
+		}
+		document.getElementById("ssStatus").innerHTML = ssStatus;
+		
+		
+		
+		
+	}
+	
 	</script>
 </body>
 </html>

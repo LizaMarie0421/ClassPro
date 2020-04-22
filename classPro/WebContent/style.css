@@ -406,6 +406,92 @@ table.csClassTable tfoot .links a {
 	padding: 2px 8px;
 	border-radius: 5px;
 }
+/**Table for competency**/
+table.compTable {
+	margin-top: 125px;
+	margin-left: 150px;
+	margin-right: 15px;
+	font-family: "Times New Roman", Times, serif;
+	border: 0px solid #3C4694;
+	background-color: #EEEEEE;
+	width: 25%;
+	align: left;
+	text-align: center;
+	border: 1px;
+	float: left;
+	opacity: 0.99;
+	background: rgba(0, 0, 0, 0.10);
+}
+
+table.compTable tbody td {
+	font-size: 20px;
+	border: 1px solid #388094;
+	color: #FFFFFF;
+	background: rgba(0, 0, 0, 0.19);
+}
+
+
+table.compTable thead th {
+	font-size: 22px;
+	font-weight: bold;
+	color: #F0F0F0;
+	text-align: center;
+	border: solid #388094;
+}
+
+
+table.compTable thead th {
+	font-size: 22px;
+	font-weight: bold;
+	color: #F0F0F0;
+	text-align: center;
+	border: solid #388094;
+}
+
+
+/**Table for distribution area**/
+table.distrTable {
+	margin-top: 50px;
+	margin-left: 15px;
+	margin-right: 200px;
+	font-family: "Times New Roman", Times, serif;
+	border: 0px solid #3C4694;
+	background-color: #EEEEEE;
+	width: 25%;
+	align: right;
+	text-align: center;
+	border: 1px;
+	float: right;
+	opacity: 0.99;
+	background: rgba(0, 0, 0, 0.10);
+}
+
+table.distrTable tbody td {
+	font-size: 20px;
+	border: 1px solid #388094;
+	color: #FFFFFF;
+	background: rgba(0, 0, 0, 0.19);
+}
+
+
+table.distrTable thead th {
+	font-size: 22px;
+	font-weight: bold;
+	color: #F0F0F0;
+	text-align: center;
+	border: solid #388094;
+}
+
+
+table.distrTable thead th {
+	font-size: 22px;
+	font-weight: bold;
+	color: #F0F0F0;
+	text-align: center;
+	border: solid #388094;
+}
+
+
 
 DIV.drafttable {
 	display: table;

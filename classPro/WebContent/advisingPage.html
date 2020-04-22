@@ -15,6 +15,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="classes/">DePauw Classes</a></li>
 					<li><a href="advisingPage.html">Advising Page</a></li>
+					<li><a href="advisingPage/formResults.html">form Page</a></li>
 				</ul>
 		</div>
 	</header>
@@ -138,17 +139,17 @@
 
 <div class="drafttable" id= "selfRegTable">
     <div class="th">
-    	<span class="td" id="">Year</span>
-    	<span class="td" id="">Semester</span>
-        <span class="td" id="titleClass">Class<br/> Name</span>
-        <span class="td" id="competency">Competency</span>
-        <span class="td" id="distArea">Distribution<br/> Area</span>
-        <span class="td" id="credit"><br/>Credit</span>
-        <span class="td" id="">Current</span>
-        <span class="td"id=""><br/>Taken</span>
+    	<span class="td" >Year</span>
+    	<span class="td" >Semester</span>
+        <span class="td" >Class<br/> Name</span>
+        <span class="td" >Competency</span>
+        <span class="td" >Distribution<br/> Area</span>
+        <span class="td" ><br/>Credit</span>
+        <span class="td">Current</span>
+        <span class="td"><br/>Taken</span>
         <span class="td" >GPA <br/>Received</span>
     </div>
-    <form name="myForm" onsubmit="return validateForm()" class="tr" method="GET" action="advisingPage/formResults.html" id="selfRegForm">
+    <form id= "form1" name="myForm" onsubmit="return validateForm()" class="tr" method="GET" action="advisingPage/formResults.html">
     	<span class="td"><input type="text" name="classYear"/></span>
         <span class="td"><input type="text" name="classSem"/></span>
         <span class="td"><input type="text" name= "className"/></span>
@@ -159,19 +160,20 @@
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
         <span class="td"><input id= "gpa1" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
-        <input type="submit" value="Submit" />      
+        <input type="submit" value="Submit" onclick="submitForms()" formaction= "advisingPage/formResults.html"/>   
     </form>
-    <form  name="myForm1" class="tr" method="post" action="#">
-    	<span class="td"><input type="text" name="classYear1"/></span>
-        <span class="td"><input type="text"name="classSem1"/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
-        <span class="td"><input type="text"/></span>
+    <form  id= "form2" name="myForm1" onsubmit="return validateForm()" class="tr" method="GET"  action="advisingPage/formResults.html">
+    	<span class="td"><input type="text" name="classYear"/></span>
+        <span class="td"><input type="text" name="classSem"/></span>
+        <span class="td"><input type="text" name= "className"" /></span>
+        <span class="td"><input type="text" name= "classCom"/></span>
+        <span class="td"><input type="text" name= "classDA"/></span>
         <span class="td"><input type="text" size= "4" id= "credit2" name= "credit"/></span>
         <span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
         <span class="td"><input type="radio" id="took" name="status" value="took"></span>
         <span class="td"><input id= "gpa2" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
+        <input type="submit" value="Submit" />
    </form>
    <form name="myForm2" class="tr" method="post" action="#">
    		<span class="td"><input type="text" name="classYear"/></span>
@@ -209,9 +211,10 @@
         <span class="td"><input id= "gpa5" name= "gpa" size= "4" type="text"/></span>
         <span class="td"></span>
    </form>
+   
 </div>
 
-<div class= "desplayInfo">
+<div class= "displayInfo">
 	<p id="mj1"></p> <p id="mj2"></p> <p id="mn1"></p> <p id="mn2"></p>
 	<p>Number of Credits Registering: <input type="text" id="creditNum" size="20"> Your accumulated gpa is: <input type="text" id="gpaFinal" size="20"></p>
 	<p>Register a semester Off-Campus: Year: <input type="text" id="yearOffCampus" size="20"> Semester Term: <input type="text" id="semOffCampus" size="20"></p>
@@ -356,6 +359,7 @@ function getGpa(){
 // 	 document.getElementById("gpaFinal").value = gpaTotal;
 
 // }
+getCreditNum();
 // function getCreditNum(){
 // 	//OVERALL NOT WORKING
 // 	var myCredit1= document.getElementById("credit1").value;
@@ -392,6 +396,10 @@ function validateForm() {
 	  }
 	}
 
+function submitForm(){
+    document.getElementById("form1").submit();
+    document.getElementById("form2").submit();
+}
 </script>
 
 </body>
