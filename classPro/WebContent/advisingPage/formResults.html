@@ -195,7 +195,7 @@
 			param=needUrl.split("&");
         var classYearUrl, classYear,classSemUrl, classSem, classNameUrl, className, 
         classComUrl, classCom, classDAUrl, classDA, creditUrl,credit, gpaUrl, gpa, statusUrl, status;
-		
+
 		if (needUrl === variableUrl || needUrl === "") return;
 		for (i=0; i<param.length;i++){
 			classYearUrl=param[0].split("=", 2);
@@ -215,7 +215,11 @@
 		 	credit= creditUrl[1];
 		 	status= statusUrl[1];
 		 	gpa= gpaUrl[1];
+// 			document.write("wokrammmm");
+
 		}
+// 		document.write("wok111");
+
 		document.getElementById("finalclassYear").innerHTML = classYear;
 		document.getElementById("finalclassSem").innerHTML =classSem;
 		document.getElementById("finalclassName").innerHTML =className;
@@ -377,9 +381,20 @@
 	    document.getElementById("gpaTracker").innerHTML = finalGPA;
 	    
 	   
-	   
 	} 
-	
+// 	validateForm();
+// 	function validateForm() {
+// 		var classYear, classSem,credit;
+		
+// 		document.getElementById("finalclassYear").innerHTML = classYear;
+// 		document.getElementById("finalclassSem").innerHTML =classSem;
+		
+		  
+// 	 	  if (classYear=="undefined"|| classYear < 2000 || classYear > 2020){
+// 	 	    alert("Class Year not valid");	   
+// 	 	  	return false;
+// 	 	  }
+// 	 	}
 	</script>
 </body>
 </html>
