@@ -43,13 +43,35 @@
 				</tr>
 			</tfoot>
 			<tbody>
-				<tr>
+				<tr class= "reg" >
 					<td id="finalclassYear"></td>
 					<td id="finalclassSem"></td>
 					<td id="finalclassName"></td>
 					<td id="finalclassCom"></td>
 					<td id="finalclassDA"></td>
 				</tr>
+				<tr class= "reg">
+					<td id="finalclassYear1"></td>
+					<td id="finalclassSem1"></td>
+					<td id="finalclassName1"></td>
+					<td id="finalclassCom1"></td>
+					<td id="finalclassDA1"></td>
+				</tr>
+				<tr class= "reg" >
+					<td id="finalclassYear"></td>
+					<td id="finalclassSem"></td>
+					<td id="finalclassName"></td>
+					<td id="finalclassCom"></td>
+					<td id="finalclassDA"></td>
+				</tr>
+				<tr class= "reg" >
+					<td id="finalclassYear"></td>
+					<td id="finalclassSem"></td>
+					<td id="finalclassName"></td>
+					<td id="finalclassCom"></td>
+					<td id="finalclassDA"></td>
+				</tr>
+				
 				
 				
 			</tbody>
@@ -189,54 +211,140 @@
 	var variableUrl=window.location.search;
     parseURL(variableUrl);
 	function parseURL(variableUrl){
-		var start= variableUrl.indexOf("?")+1,
-			end= variableUrl.length+1,
-			needUrl= variableUrl.slice(start,end-1),
-			param=needUrl.split("&");
-        var classYearUrl, classYear,classSemUrl, classSem, classNameUrl, className, 
+		var classYearUrl, classYear,classSemUrl, classSem, classNameUrl, className, 
         classComUrl, classCom, classDAUrl, classDA, creditUrl,credit, gpaUrl, gpa, statusUrl, status;
-
-		if (needUrl === variableUrl || needUrl === "") return;
-		for (i=0; i<param.length;i++){
-			classYearUrl=param[0].split("=", 2);
-			classSemUrl=param[1].split("=", 2);
-			classNameUrl=param[2].split("=", 2);
-			classComUrl=param[3].split("=", 2);
-			classDAUrl=param[4].split("=", 2);
-			creditUrl=param[5].split("=", 2);
-			statusUrl=param[6].split("=", 2);
-			gpaUrl=param[7].split("=", 2);
+		
+		var x = document.getElementsByClassName("reg");
+        document.write("this is row number:", x.length);
+        
+		var param, start= variableUrl.indexOf("?")+1,
+			end= variableUrl.length+1,
+			needUrl= variableUrl.slice(start,end),
+			classURL= needUrl.split("&end=%3F&");
+			//param=classURL.split("&");
 			
-			classYear= classYearUrl[1];
-			classSem= classSemUrl[1];
-			className= classNameUrl[1];
-			classCom= classComUrl[1];
-		 	classDA= classDAUrl[1];
-		 	credit= creditUrl[1];
-		 	status= statusUrl[1];
-		 	gpa= gpaUrl[1];
-// 			document.write("wokrammmm");
+		
+        document.write("this is start number:", start);
+        //should be 1
+        document.write("this is end number:", end);
+        //should be high number over 100
+        document.write("this is needUrl :", needUrl);
+        //should be whole url
+        
+        document.write("this is classURL :", classURL);
+        //should be list of all class registration url with end
+        document.write("this is classURL length:", classURL.length);
+       
+        		
+//         document.write("this is param number:", param.length);
+//         document.write("this is WHAT i WANT number:", (param.length-1)/7);
+        
+        		
+       // x.style.display="table-row";
+		if (needUrl === variableUrl || needUrl === "") return;		
+		
+ 		for (j=0; j<classURL.length-1; j++){
+		//for (j=0; j<=0; j++){
+			//document.write("wokrammmm");
+			//document.write("classURL[0]: ", classURL[0]);
+			param= classURL[j].split("&");
+			//document.write("this is param stuff: ", param);
+			document.write("this is param length: ", param.length);
+			document.write("********this is current class register: ", j);
+// 			paramTEST= param[0];
+// 			document.write("this is paramTEST: ", paramTEST);
+			for (i=0; i<param.length+1 ;i++){
+				document.write("in begining loop");
+				document.write("//////this is current class: ", i);
+// 				document.write("this is param length+1: ", param.length+1);
+// 				document.write("this is param[0]: ",param[0]);
+				//if (param.length==8)
+				
+				
+				classYearUrl=param[0].split("=", 2);
+				//document.write("this is classYearUrl[1]: ",classYearUrl[1]);
+				
+				classSemUrl=param[1].split("=", 2);
+				//document.write("this is classSemUrl[1]: ",classSemUrl[1]);
+				
+				classNameUrl=param[2].split("=", 2);
+				//document.write("this is classNameUrl[1]: ",classNameUrl[1]);
+				
+				classComUrl=param[3].split("=", 2);
+				//document.write("this is classComUrl[1]: ",classComUrl[1]);
+				
+				classDAUrl=param[4].split("=", 2);
+				//document.write("this is classDAUrl[1]: ",classDAUrl[1]);
+				
+				creditUrl=param[5].split("=", 2);
+				//document.write("this is creditUrl[1]: ",creditUrl[1]);
+				
+				statusUrl=param[6].split("=", 2);
+				//document.write("this is statusUrl[1]: ",statusUrl[1]);
+				
+				gpaUrl=param[7].split("=", 2);
+				//document.write("this is classYearUrl[1]: ",gpaUrl[1]);
+				
+				//document.write("in middle  loop");
+				classYear= classYearUrl[1];
+				classSem= classSemUrl[1];
+				className= classNameUrl[1];
+				classCom= classComUrl[1];
+			 	classDA= classDAUrl[1];
+			 	credit= creditUrl[1];
+			 	status= statusUrl[1];
+			 	gpa= gpaUrl[1];
+// 			 	document.write("in end loop");
+// 			 	document.write("classYear: ", classYear);
+				//document.write("wokrammmm");
+			 	
 
+				}
+			document.write("wokrammmm");
+			if (j==0){
+				document.getElementById("finalclassYear").innerHTML = classYear;
+				document.getElementById("finalclassSem").innerHTML =classSem;
+				document.getElementById("finalclassName").innerHTML =className;
+				document.getElementById("finalclassCom").innerHTML = classCom;
+				document.getElementById("finalclassDA").innerHTML =classDA;		
+				document.getElementById("creditCounter").innerHTML = credit;
+				if(status== "took"){
+					getGpa(gpa, credit);
+				}
+				statusUpdate();
+			}
+			else if (j==1){
+				document.getElementById("finalclassYear1").innerHTML = classYear;
+				document.getElementById("finalclassSem1").innerHTML =classSem;
+				document.getElementById("finalclassName1").innerHTML =className;
+				document.getElementById("finalclassCom1").innerHTML = classCom;
+				document.getElementById("finalclassDA1").innerHTML =classDA;		
+				document.getElementById("creditCounter1").innerHTML = credit;
+				if(status== "took"){
+					getGpa(gpa, credit);
+				}
+				statusUpdate();
+			}
+			
+			document.write("wokrammmm");
 		}
+		statusUpdate();
 // 		document.write("wok111");
 
-		document.getElementById("finalclassYear").innerHTML = classYear;
-		document.getElementById("finalclassSem").innerHTML =classSem;
-		document.getElementById("finalclassName").innerHTML =className;
-		document.getElementById("finalclassCom").innerHTML = classCom;
-		document.getElementById("finalclassDA").innerHTML =classDA;
-		
+// 		document.getElementById("finalclassYear").innerHTML = classYear;
+// 		document.getElementById("finalclassSem").innerHTML =classSem;
+// 		document.getElementById("finalclassName").innerHTML =className;
+// 		document.getElementById("finalclassCom").innerHTML = classCom;
+// 		document.getElementById("finalclassDA").innerHTML =classDA;
+	
 		//document.getElementById("finalclassGPA").innerHTML = gpa;
 			//document.write("gpa in function1: ", gpa);
-			document.getElementById("creditCounter").innerHTML = credit;
-		//for (i =0;i<5;i++ ){
-			if(status== "took"){
-				getGpa(gpa, credit);
-			}
-			//document.write("gpa in function2: ", gpa);
-		//}
+			//document.getElementById("creditCounter").innerHTML = credit;
 	}
-	statusUpdate();
+	
+	
+	
+	
 	function statusUpdate(){
 		var classCom= document.getElementById("finalclassCom").innerHTML;
 		var classDA= document.getElementById("finalclassDA").innerHTML;

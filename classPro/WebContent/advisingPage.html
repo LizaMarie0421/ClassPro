@@ -149,19 +149,20 @@
 		</div>
 		<form id="form1" name="myForm" onsubmit=""
 			class="tr" method="GET" action="advisingPage/formResults.html">
-			<span class="td"><input type="text" name="classYear" /></span> <span
-				class="td"><input type="text" name="classSem" /></span> <span
-				class="td"><input type="text" name="className" /></span> <span
-				class="td"><input type="text" name="classCom" /></span> <span
-				class="td"><input type="text" name="classDA" /></span> <span
-				class="td"><input type="text" size="4" name="credit"
-				id="credit1" /></span> <span class="td"><input type="radio"
-				id="taking" name="status" value="taking"></span> <span class="td"><input
-				type="radio" id="took" name="status" value="took"></span> <span
-				class="td"><input id="gpa1" name="gpa" size="4" type="text" /></span>
+			<span class="td"><input type="text" name="classYear" /></span> 
+			<span class="td"><input type="text" name="classSem" /></span> 
+			<span class="td"><input type="text" name="className" /></span> 
+			<span class="td"><input type="text" name="classCom" /></span>
+			<span class="td"><input type="text" name="classDA" /></span> 
+			<span class="td"><input type="text" size="4" name="credit"id="credit1" /></span> 
+			<span class="td"><input type="radio" id="taking" name="status" value="taking"></span>
+			<span class="td"><input type="radio" id="took" name="status" value="took"></span>
+			<span class="td"><input id="gpa1" name="gpa" size="4" type="text" /></span>
 			<span class="td"></span>
+<!-- 			<button type="button" id="register" onclick="next(1)">Register Class</button> -->
+			
 			 <input type="submit" value="Submit"/>
-<!-- 				formaction="advisingPage/formResults.html" /> -->
+<!-- <!-- 				formaction="advisingPage/formResults.html" /> --> 
 		</form>
 		<form id="form2" name="myForm1" onsubmit=""
 			class="tr" method="GET" action="advisingPage/formResults.html">
@@ -176,6 +177,7 @@
 				type="radio" id="took" name="status" value="took"></span> <span
 				class="td"><input id="gpa2" name="gpa" size="4" type="text" /></span>
 			<span class="td"></span> 
+			<button type="button" id="register" onclick="next(1)">Register Class</button>
 <!-- 			<input type="submit" value="Submit" /> -->
 		</form>
 		<form name="myForm2" class="tr" method="GET" action="#">
@@ -267,7 +269,20 @@
 				</tr>
 			</tbody>
 		</table>
+<!-- <h2>Responsive Inline Form</h2> -->
+<!-- <p>We have created an inline form that will stay horizontal until the screen width of the browser window is less than 850 pixels: then the form is displayed vertically instead of horizontally.</p> -->
+<!-- <p>Resize the browser window to see the effect.</p> -->
 
+<!-- <form class="form-inline"> -->
+<!--   <label for="email">Email:</label> -->
+<!--   <input type="email" id="email" placeholder="Enter email" name="email"> -->
+<!--   <label for="pwd">Password:</label> -->
+<!--   <input type="password" id="pwd" placeholder="Enter password" name="pswd"> -->
+<!--   <label> -->
+<!--     <input type="checkbox" name="remember"> Remember me -->
+<!--   </label> -->
+<!--   <button type="submit">Submit</button> -->
+<!-- </form> -->
 
 	</div>
 
@@ -335,10 +350,15 @@ function getInfo(){
 // 	  }
 // 	}
 
-function submitForms(){
-	
-    document.getElementById("form1").submit();
-    document.getElementById("form2").submit();
+function nextPrev(n) {
+  
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1) return false
+  else document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
 }
 
 

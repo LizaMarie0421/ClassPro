@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Advising Page | ClassPro</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- 	<script src="/advisingPage/editSelfRegister.js"></script> -->
+</head>
+<body>
+	<header>
+		<div class="nav-bar">
+			<img
+				src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/87301328_3090736327624872_8943290016822460416_n.jpg?_nc_cat=104&_nc_sid=8024bb&_nc_ohc=-cqjtjfYTDAAX_kSM4r&_nc_ht=scontent-ort2-2.xx&oh=f0a93f283762d6b5bf33be394955992b&oe=5EF3F0BB"
+				class="logo" />
+			<ul class="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="classes/">DePauw Classes</a></li>
+				<li><a href="advisingPage.html">Advising Page</a></li>
+				<li><a href="advisingPage/formResults.html">Form Page</a></li>
+			</ul>
+		</div>
+	</header>
+	<form>
+		<fieldset>
+			<legend>Pick your Major(s)/Minor(S)</legend>
+	</form>
+
+
+<div name= "test">
+<form id="regForm" method= "GET" action="advisingPage/formResults.html">
+
+<h1 text-color= "blue">Register:</h1>
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">Class 1:
+  <p><input type="text" name="classYear" placeholder="Year..." /></p>
+  <p><input type="text" name="classSem" placeholder="Semester..." /></p>
+  <p><input type="text" name="className" placeholder="Class Name..." /></p>
+  <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
+  <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
+  <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
+  <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p>
+  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+  <p><input type="text" name="gpa" placeholder="GPA..." /></p>
+  <p><input type="text" name="end" value="?" style="display:none;" /></p>
+</div>
+
+<div class="tab">Class 2:
+  <p><input type="text" name="classYear" placeholder="Year..." /></p>
+  <p><input type="text" name="classSem" placeholder="Semester..." /></p>
+  <p><input type="text" name="className" placeholder="Class Name..." /></p>
+  <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
+  <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
+  <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
+  <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p>
+  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+  <p><input type="text" name="gpa" placeholder="GPA..." /></p>
+  <p><input type="text" name="end" value="?" style="display:none;" /></p>
+  
+</div>
+
+<div class="tab">Class 3:
+  <p><input type="text" name="classYear" placeholder="Year..." /></p>
+  <p><input type="text" name="classSem" placeholder="Semester..." /></p>
+  <p><input type="text" name="className" placeholder="Class Name..." /></p>
+  <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
+  <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
+  <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
+  <p>Taking<input type="radio" id="taking" name="status" value="taking"></p>
+  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+  <p><input type="text" name="gpa" placeholder="GPA..." /></p>
+  <p><input type="text" name="end" value="?" style="display:none;" /></p>
+  
+</div>
+
+<div class="tab">Class 4:
+  <p><input type="text" name="classYear" placeholder="Year..." /></p>
+  <p><input type="text" name="classSem" placeholder="Semester..." /></p>
+  <p><input type="text" name="className" placeholder="Class Name..." /></p>
+  <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
+  <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
+  <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
+  <p>Taking<input type="radio" id="taking" name="status" value="taking"></p>
+  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+  <p><input type="text" name="gpa" placeholder="GPA..." /></p>
+  <p><input type="text" name="end" value="?" style="display:none;" /></p>
+</div>
+
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    <button type="button" id="submitBtn" onclick="nextPrev(4)">Submit</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form>
+</div>
+
+
+
+
+	<div class="footer">
+		<!-- 		<button type="submit" value="Submit" onclick="getGpa();">Generate Advising Schedule</button>  -->
+		<!-- 		<input type="button" onclick="getGpa();" value="Generate GPA" class="btn btn1" /> -->
+		<input type="button" id="more_fields" onclick="add_fields();"
+			value="Add More" class="btn btn1" /> <a
+			onclick="submitForms()" class="btn btn1"> Generate
+			Schedule</a>
+	</div>
+
+	</fieldset>
+
+
+
+
+
+	<script>
+document.write("worksss");
+
+function add_fields() {
+    var objTo = document.getElementById('selfRegTable');
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="drafttable"><form class="tr" method="get" action="#"><span class="td"><input type="text" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span><span class="td"><input size= "4" type="text"/></span></form></div>';
+    
+    objTo.appendChild(divtest);
+}     
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+    document.getElementById("submitBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "actual Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+
+
+
+
+</script>
+
+</body>
+</html>
