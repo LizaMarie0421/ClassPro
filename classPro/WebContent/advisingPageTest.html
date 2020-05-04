@@ -30,7 +30,7 @@
 <div name= "test">
 <form id="regForm" method= "GET" action="advisingPage/formResults.html">
 
-<h1 text-color= "blue">Register:</h1>
+<h1 font-color= "blue">Register:</h1>
 
 <!-- One "tab" for each step in the form: -->
 <div class="tab">Class 1:
@@ -40,8 +40,8 @@
   <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
   <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
   <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
-  <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p>
-  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+<!--   <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p> -->
+<!--   <p>Taken<input type="radio" id="took" name="status" value="took"></p> -->
   <p><input type="text" name="gpa" placeholder="GPA..." /></p>
   <p><input type="text" name="end" value="?" style="display:none;" /></p>
 </div>
@@ -53,8 +53,8 @@
   <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
   <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
   <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
-  <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p>
-  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+<!--   <p>Taking<input type="radio" id="taking" name="status" value="taking" checked="checked"></p> -->
+<!--   <p>Taken<input type="radio" id="took" name="status" value="took"></p> -->
   <p><input type="text" name="gpa" placeholder="GPA..." /></p>
   <p><input type="text" name="end" value="?" style="display:none;" /></p>
   
@@ -67,8 +67,8 @@
   <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
   <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
   <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
-  <p>Taking<input type="radio" id="taking" name="status" value="taking"></p>
-  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+<!--   <p>Taking<input type="radio" id="taking" name="status" value="taking"></p> -->
+<!--   <p>Taken<input type="radio" id="took" name="status" value="took"></p> -->
   <p><input type="text" name="gpa" placeholder="GPA..." /></p>
   <p><input type="text" name="end" value="?" style="display:none;" /></p>
   
@@ -81,8 +81,8 @@
   <p><input type="text" name="classCom" placeholder="Class Competency..." /></p>
   <p><input type="text" name="classDA" placeholder="Class Distribution Area..." /></p>
   <p><input type="text" name="credit" placeholder="Class Credit..." /></p>
-  <p>Taking<input type="radio" id="taking" name="status" value="taking"></p>
-  <p>Taken<input type="radio" id="took" name="status" value="took"></p>
+<!--   <p>Taking<input type="radio" id="taking" name="status" value="taking"></p> -->
+<!--   <p>Taken<input type="radio" id="took" name="status" value="took"></p> -->
   <p><input type="text" name="gpa" placeholder="GPA..." /></p>
   <p><input type="text" name="end" value="?" style="display:none;" /></p>
 </div>
@@ -91,7 +91,7 @@
   <div style="float:right;">
     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-    <button type="button" id="submitBtn" onclick="nextPrev(4)">Submit</button>
+    <button type="button" id="submitBtn" onclick="nextPrev(4)">Submit Now</button>
   </div>
 </div>
 
@@ -150,7 +150,8 @@ function showTab(n) {
     document.getElementById("submitBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "actual Submit";
+    document.getElementById("nextBtn").innerHTML = "Submit All";
+    //document.getElemenById("submitBtn").style.display="none";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
