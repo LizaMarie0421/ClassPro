@@ -298,10 +298,15 @@
 				}
 			//document.write("wokrammmm");
 			//statusUpdate(classCom, classDA);
+			document.write("(before) credit:  ", credit);
 			//document.getElementById("creditCounter").innerHTML = credit;
+			
 			document.getElementById("creditCounter").innerHTML= Number(document.getElementById("creditCounter").innerHTML)+ Number(credit);
+			document.write("(after) credit:  ", document.getElementById("creditCounter").innerHTML);
+			
+			
 			document.getElementById("gpaTracker").innerHTML=(Number(document.getElementById("gpaTracker").innerHTML)+Number(gpa));
-			//document.write("document.getElementById(gpaTracker).innerHTML",document.getElementById("gpaTracker").innerHTML);
+			document.write("**document.getElementById(gpaTracker).innerHTML:    ",document.getElementById("gpaTracker").innerHTML);
 			
 			if (j==0){
 				document.getElementById("finalclassYear").innerHTML = classYear;
@@ -310,49 +315,30 @@
 				document.getElementById("finalclassCom").innerHTML = classCom;
 				document.getElementById("finalclassDA").innerHTML =classDA;		
 				
-
-				//getGpa(gpa, credit);
 				statusUpdate(classCom, classDA);
-				document.write("j=0 result");
+				//document.write("j=0 result");
 			}
 			else if (j==1){
 				document.getElementById("finalclassYear1").innerHTML = classYear;
 				document.getElementById("finalclassSem1").innerHTML =classSem;
 				document.getElementById("finalclassName1").innerHTML =className;
-				
-				if (classCom!= "Q"|| classCom!="S"||classCom!="W"){
-					document.getElementById("finalclassCom1").innerHTML = " ";
-				}
-				else document.getElementById("finalclassCom1").innerHTML = classCom;
-				// document.getElementById("finalclassCom1").innerHTML = classCom;
-				
-// 				if (classDA!= "SM"|| classDA!="SS"||classDA!="PPD"||classDA!= "AH"|| classDA!="GL"){
-// 					document.getElementById("finalclassDA1").innerHTML = " ";
-// 				}
-// 				else document.getElementById("finalclassDA1").innerHTML = classDA;
+				//document.write("class com beforre setting: ", classCom);
+				document.getElementById("finalclassCom1").innerHTML = classCom;
+				//document.write("class com after setting: ", document.getElementById("finalclassCom1").innerHTML);
 				document.getElementById("finalclassDA1").innerHTML = classDA;
 				
-				//document.getElementById("creditCounter").innerHTML = credit;
-				//getGpa(gpa, credit);
 				statusUpdate(classCom, classDA);
-				document.write("j=1 result");
+				//document.write("j=1 result");
 			}			
 			else if (j==2){
 				document.getElementById("finalclassYear2").innerHTML = classYear;
 				document.getElementById("finalclassSem2").innerHTML =classSem;
 				document.getElementById("finalclassName2").innerHTML =className;
-				if (classCom!= "Q"|| classCom!="S"||classCom!="W"){
-					document.getElementById("finalclassCom1").innerHTML = " ";
-				}
-				else document.getElementById("finalclassCom1").innerHTML = classCom;
+				document.getElementById("finalclassCom2").innerHTML = classCom;
 				document.getElementById("finalclassDA2").innerHTML = classDA;
-				
-				
-				//document.getElementById("creditCounter").innerHTML = credit;
-				
-				//getGpa(gpa, credit);
-				//statusUpdate(classCom, classDA);
-				document.write("j=2 result");
+
+				statusUpdate(classCom, classDA);
+				//document.write("j=2 result");
 			}
 			else if (j==3){
 				document.getElementById("finalclassYear3").innerHTML = classYear;
@@ -361,11 +347,8 @@
 				document.getElementById("finalclassCom3").innerHTML = classCom;
 				document.getElementById("finalclassDA3").innerHTML = classDA;
 				
-				
-				//document.getElementById("creditCounter").innerHTML = credit;
-				//getGpa(gpa, credit);
-				//statusUpdate(classCom, classDA);
-				document.write("j=3 result");
+				statusUpdate(classCom, classDA);
+				//document.write("j=3 result");
 			}
 			
 			//document.write("wokrammmm");
@@ -384,8 +367,8 @@
  		var counterQ =0, counterW =0, counterS =0, counterAH =0, counterPPD =0, counterSS =0, counterSM =0, counterGL =0; 
  		var classCom=varCom;
 		var classDA=varDA;
-		document.write("classCom: ", classCom);
-		document.write("classDA: ", classDA);
+		//document.write("classCom: ", classCom);
+		//document.write("classDA: ", classDA);
 		
 		
 		if (classCom=="Q"){
@@ -406,87 +389,104 @@
 			counterPPD= 1;
 		}
 		else if (classDA=="SS"){
-			counterSS= counterSS+ 1;
+			counterSS= 1;
 		}
 		else if (classDA=="SM"){
-			counterSM= counterSM+1;
+			counterSM= 1;
 		}
 		else if (classDA=="GL"){
 			counterGL= 1;
 		}
 		document.write("counterQ:", counterQ);
-		//document.write("counterSM:   ", counterSM);
-		
-		
-		//document.write("counterQ:", counterQ);
-		if(Number(counterQ)>=1){
-			qStatus= "1/1 Completed";
-		}
-		else if(Number(counterQ)==0)  {
-			qStatus= "0/1";
-		}
-		//else qstatus="1/1 Completed";
-		//document.write("qStatus:", qStatus);
-		document.getElementById("qStatus").innerHTML = qStatus;
-		
-		if(Number(counterW)==1){
-			wStatus= "1/1 Completed";
-		}
-		else if(Number(counterW)==0)  {
-			wStatus= "0/1";
-		}
-		document.getElementById("wStatus").innerHTML = wStatus;
-		
-		if(Number(counterS)==1){
-			sStatus= "1/1 Completed";
-		}
-		else if(Number(counterS)==0)  {
-			sStatus= "0/1";
-		}
-		document.getElementById("sStatus").innerHTML = sStatus;
+
 		
 		
 		
-		if(Number(counterPPD)==1){
-			ppdStatus= "1/1 Completed";
-		}
-		else if(Number(counterPPD)==0)  {
-			ppdStatus= "0/1";
-		}
-		document.getElementById("ppdStatus").innerHTML = ppdStatus;
+		////this is the  COMP Q tracker	
 		
-		 if(Number(counterGL)==1){
-			glStatus= "1/1 Completed";
+		currentQstatus= document.getElementById("qStatus").innerHTML;
+		if (currentQstatus =="1/1 completed"){
+			document.getElementById("qStatus").innerHTML = "1/1 completed";
+		}
+		else if (currentQstatus==""||currentQstatus =="undefined"||currentQstatus =="0/1"){
+				if (Number(counterQ)==0){
+					document.getElementById("qStatus").innerHTML = "0/1";
+				}
+				else if (Number(counterQ)==1){
+					document.getElementById("qStatus").innerHTML = "1/1 completed";
+				}
+			}
+		
+		
+		currentWstatus= document.getElementById("wStatus").innerHTML;
+		if (currentWstatus =="1/1 completed"){
+			document.getElementById("wStatus").innerHTML = "1/1 completed";
+		}
+		else if (currentWstatus==""||currentWstatus =="undefined"||currentWstatus =="0/1"){
+				if (Number(counterW)==0){
+					document.getElementById("wStatus").innerHTML = "0/1";
+				}
+				else if (Number(counterW)==1){
+					document.getElementById("wStatus").innerHTML = "1/1 completed";
+				}
+			}
+		
+		
+		
+// 		document.write("for s: AFTER variable goes thrrough counter: ", counterS);
+// 		document.write("for s: document.getElementById(sStatus).innerHTML: ", document.getElementById("sStatus").innerHTML);
+ 		currentSstatus= document.getElementById("sStatus").innerHTML;
+	//	document.write("****currentStatus:******** ", currentStatus);
+		
+		if (currentSstatus =="1/1 completed"){
+			document.getElementById("sStatus").innerHTML = "1/1 completed";
+		}
+		else if (currentSstatus==""||currentSstatus =="undefined"||currentSstatus =="0/1"){
+			if (Number(counterS)==0){
+				document.getElementById("sStatus").innerHTML = "0/1";
+			}
+			else if (Number(counterS)==1){
+				document.getElementById("sStatus").innerHTML = "1/1 completed";
+			}
 		}
 		
-		 else if(Number(counterGL)==0){
-				glStatus= "0/1";
+		
+		//this is the PPD tracker	
+		currentPPDstatus= document.getElementById("ppdStatus").innerHTML;
+		if (currentPPDstatus =="1/1 completed"){
+			document.getElementById("ppdStatus").innerHTML = "1/1 completed";
 		}
-		 document.getElementById("glStatus").innerHTML = glStatus;
+		else if (currentPPDstatus==""||currentGLstatus =="undefined"||currentGLstatus =="0/1"){
+			if (Number(counterPPD)==0){
+				document.getElementById("ppdStatus").innerHTML = "0/1";
+			}
+			else if (Number(counterPPD)==1){
+				document.getElementById("ppdStatus").innerHTML = "1/1 completed";
+			}
+		}
+		
+		//this is the GL tracker	
+		currentGLstatus= document.getElementById("glStatus").innerHTML;
+		if (currentGLstatus =="1/1 completed"){
+			document.getElementById("glStatus").innerHTML = "1/1 completed";
+		}
+		else if (currentGLstatus==""||currentGLstatus =="undefined"||currentGLstatus =="0/1"){
+			if (Number(counterGL)==0){
+				document.getElementById("glStatus").innerHTML = "0/1";
+			}
+			else if (Number(counterGL)==1){
+				document.getElementById("glStatus").innerHTML = "1/1 completed";
+			}
+		}
 		 
 		 
-		 
- 		document.write("AFTER variable goes thrrough counter: ", counterSM);
+//  		document.write("AFTER variable goes thrrough counter: ", counterSM);
+		
+// // 		//should be last updates sm status= 1/2
+// 		document.write("****currentSMtatus:******** ", currentSMtatus);
+			
+		//this is the SM tracker	
 		currentSMtatus= document.getElementById("smStatus").innerHTML;
-// 		//should be last updates sm status= 1/2
-		document.write("****currentSMtatus:******** ", currentSMtatus);
-		
-		
-// 			if(Number(counterSM)==1){
-// 				smStatus= "1/2";
-// 			}
-// 			else if(Number(counterSM)==2){
-// 				smStatus= "2/2 Completed";
-// 			}
-// 			else if(Number(counterSM)==2){
-// 				smStatus= "2/2 Completed";
-// 			}
-// // 			else if(currentSMtatus=="0/2"){
-// // 				smStatus= "0/2";
-// // 			}
-// 			//document.write("smStatus2: ", smStatus);
-// 			document.getElementById("smStatus").innerHTML = smStatus;
-		 
 		if (currentSMtatus =="2/2 completed"){
 			document.getElementById("smStatus").innerHTML = "2/2 completed";
 		}
@@ -507,33 +507,49 @@
 			}
 		}
 		
-			
-			
-		if(Number(counterAH)==1){
-			ahStatus= "1/2";
+		//this is the AH tracker		
+		currentAHstatus= document.getElementById("ahStatus").innerHTML;
+		if (currentAHstatus =="2/2 completed"){
+			document.getElementById("ahStatus").innerHTML = "2/2 completed";
 		}
-			
-		else if(Number(counterAH)==2){
-			ahStatus= "2/2 Completed";
+		else if (currentAHstatus =="1/2"){
+			if (Number(counterAH)==1){
+				document.getElementById("ahStatus").innerHTML = "2/2 completed";
+			}
+			else if (Number(counterAH)==0){
+				document.getElementById("ahStatus").innerHTML = "1/2"
+			}
 		}
-		else if(Number(counterAH)==0){
-			ahStatus= "0/2";
+		else if (currentAHstatus==""||currentAHstatus =="undefined"||currentAHstatus =="0/1"){
+			if (Number(counterAH)==0){
+				document.getElementById("ahStatus").innerHTML = "0/1";
+			}
+			else if (Number(counterAH)==1){
+				document.getElementById("ahStatus").innerHTML = "1/2";
+			}
 		}
-		document.getElementById("ahStatus").innerHTML = ahStatus;
 		
-		if(Number(counterSS)==1){
-			ssStatus= "1/2";
+	//this is the SS tracker	
+		currentSSstatus= document.getElementById("ssStatus").innerHTML;
+		if (currentSSstatus =="2/2 completed"){
+			document.getElementById("ssStatus").innerHTML = "2/2 completed";
 		}
-		else if(Number(counterSS)==2){
-			ssStatus= "2/2 Completed";
+		else if (currentSSstatus =="1/2"){
+			if (Number(counterSS)==1){
+				document.getElementById("ssStatus").innerHTML = "2/2 completed";
+			}
+			else if (Number(counterSS)==0){
+				document.getElementById("ssStatus").innerHTML = "1/2"
+			}
 		}
-		else if(Number(counterSS)==0){
-			ssStatus= "0/2";
+		else if (currentSSstatus==""||currentSSstatus =="undefined"||currentSSstatus =="0/1"){
+			if (Number(counterSS)==0){
+				document.getElementById("ssStatus").innerHTML = "0/1";
+			}
+			else if (Number(counterSS)==1){
+				document.getElementById("ssStatus").innerHTML = "1/2";
+			}
 		}
-		document.getElementById("ssStatus").innerHTML = ssStatus;
-		
-		
-		
 		
 	}
 	
