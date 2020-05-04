@@ -23,7 +23,7 @@
 	</header>
 	<form>
 		<fieldset>
-			<legend>Pick your Major(s)/Minor(S)</legend>
+			<legend>Pick your Major(s)/Minor(s)</legend>
 			<div class=selectableDB>
 				<label for="major">Major 1: </label> <select id="major1"
 					onChange="getInfo()">
@@ -216,7 +216,6 @@
 					<th>Competency</th>
 					<th>Distribution Area</th>
 					<th>Credit</th>
-					<th>GPA Received</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -241,7 +240,6 @@
 					<br /> PPD: Power, Priviledge and Diversity
 					</td>
 					<td>.25-1.0</td>
-					<td>Only if class is registered as Taken</td>
 				</tr>
 			</tbody>
 		</table>
@@ -254,15 +252,7 @@
 
 
 	<script>
-document.write("worksss");
-
-function add_fields() {
-    var objTo = document.getElementById('selfRegTable');
-    var divtest = document.createElement("div");
-    divtest.innerHTML = '<div class="drafttable"><form class="tr" method="get" action="#"><span class="td"><input type="text" name="class" value=""/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="text"/></span><span class="td"><input type="radio" id="taking" name="status" value="taking"></span><span class="td"><input type="radio" id="took" name="status" value="took"></span><span class="td"><input size= "4" type="text"/></span></form></div>';
-    
-    objTo.appendChild(divtest);
-}     
+//document.write("worksss");
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab

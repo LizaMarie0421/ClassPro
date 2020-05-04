@@ -172,7 +172,6 @@
 	<table class="csClassTable">
 		<thead>
 			<tr>
-				<th>Class ID</th>
 				<th>Class Name</th>
 				<th>Competency</th>
 				<th>Distribution Area</th>
@@ -186,8 +185,6 @@
 		</tfoot>
 		<tbody>
 			<tr>
-				<td>Department + Class ID <br /> Example: Math123
-				</td>
 				<td>Example: <br /> Computational Discrete Math
 				</td>
 				<td>S: Senior Seminar <br />
@@ -216,7 +213,7 @@
         classComUrl, classCom, classDAUrl, classDA, creditUrl,credit, gpaUrl, gpa, statusUrl, status;
 		var joy;
 		var x = document.getElementsByClassName("reg");
-        document.write("this is row number:", x.length);
+       // document.write("this is row number:", x.length);
         
 		var param, start= variableUrl.indexOf("?")+1,
 // 			end= variableUrl.length+1,
@@ -252,7 +249,7 @@
 			param= classURL[j].split("&");
 			//document.write("this is param stuff: ", param);
 			//document.write("this is param length: ", param.length);
-			document.write("********this is current class register: ", j);
+			//document.write("********this is current class register: ", j);
 			for (i=0; i<param.length+1 ;i++){
 // 				document.write("in begining loop");
  				//document.write("//////this is current class: ", i);
@@ -298,15 +295,15 @@
 				}
 			//document.write("wokrammmm");
 			//statusUpdate(classCom, classDA);
-			document.write("(before) credit:  ", credit);
+			//document.write("(before) credit:  ", credit);
 			//document.getElementById("creditCounter").innerHTML = credit;
 			
 			document.getElementById("creditCounter").innerHTML= Number(document.getElementById("creditCounter").innerHTML)+ Number(credit);
-			document.write("(after) credit:  ", document.getElementById("creditCounter").innerHTML);
+			//document.write("(after) credit:  ", document.getElementById("creditCounter").innerHTML);
 			
 			
 			document.getElementById("gpaTracker").innerHTML=(Number(document.getElementById("gpaTracker").innerHTML)+Number(gpa));
-			document.write("**document.getElementById(gpaTracker).innerHTML:    ",document.getElementById("gpaTracker").innerHTML);
+			//document.write("**document.getElementById(gpaTracker).innerHTML:    ",document.getElementById("gpaTracker").innerHTML);
 			
 			if (j==0){
 				document.getElementById("finalclassYear").innerHTML = classYear;
@@ -397,7 +394,7 @@
 		else if (classDA=="GL"){
 			counterGL= 1;
 		}
-		document.write("counterQ:", counterQ);
+		//document.write("counterQ:", counterQ);
 
 		
 		
@@ -500,7 +497,7 @@
 		}
 		else if (currentSMtatus==""||currentSMtatus =="undefined"||currentSMtatus =="0/1"){
 			if (Number(counterSM)==0){
-				document.getElementById("smStatus").innerHTML = "0/1";
+				document.getElementById("smStatus").innerHTML = "0/2";
 			}
 			else if (Number(counterSM)==1){
 				document.getElementById("smStatus").innerHTML = "1/2";
@@ -520,9 +517,9 @@
 				document.getElementById("ahStatus").innerHTML = "1/2"
 			}
 		}
-		else if (currentAHstatus==""||currentAHstatus =="undefined"||currentAHstatus =="0/1"){
+		else if (currentAHstatus==""||currentAHstatus =="undefined"||currentAHstatus =="0/2"){
 			if (Number(counterAH)==0){
-				document.getElementById("ahStatus").innerHTML = "0/1";
+				document.getElementById("ahStatus").innerHTML = "0/2";
 			}
 			else if (Number(counterAH)==1){
 				document.getElementById("ahStatus").innerHTML = "1/2";
@@ -542,9 +539,9 @@
 				document.getElementById("ssStatus").innerHTML = "1/2"
 			}
 		}
-		else if (currentSSstatus==""||currentSSstatus =="undefined"||currentSSstatus =="0/1"){
+		else if (currentSSstatus==""||currentSSstatus =="undefined"||currentSSstatus =="0/2"){
 			if (Number(counterSS)==0){
-				document.getElementById("ssStatus").innerHTML = "0/1";
+				document.getElementById("ssStatus").innerHTML = "0/2";
 			}
 			else if (Number(counterSS)==1){
 				document.getElementById("ssStatus").innerHTML = "1/2";
@@ -558,8 +555,8 @@
 		var score=0;
 		var mygpa= Number(gpa);
 		var mycredit= Number(credit);
- 		document.write("score: __", score);
- 		document.write("mygpa: __", mygpa);
+ 		//document.write("score: __", score);
+ 		//document.write("mygpa: __", mygpa);
 		
 		score= score+ mygpa;
 // 		document.write("score: __", score);
